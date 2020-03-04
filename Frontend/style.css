@@ -1,0 +1,135 @@
+* {box-sizing: border-box;}
+
+html, body{
+  font-family: 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #202021;
+}
+#registerButtonId{
+  margin: 0 auto;
+}
+#logoutButtonId{
+  margin: 0 auto;
+}
+.loginBtn {
+  width: 150px;
+  height: 50px;
+  background: #202021;
+  border: 2px solid #E82E44;
+  font-size: 1.3rem;
+  color: #E82E44;
+  display: block;
+  margin-bottom: 30px;
+  transition: .2s;
+}
+.loginBtn:hover {
+  color: white;
+  background-color: #E82E44;
+  transition: .2s;
+  cursor: pointer;
+}
+.error{
+  background: rgba(244, 165, 39, .2);
+  border: 2px solid #F4A527;
+  padding: 10px 0 10px 20px;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #F4A527;
+}
+
+.My_jumbotron{
+  background-color: #E82E44;
+  color: white;
+}
+#homepage_list{
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  margin: auto;
+}
+.modal-header{
+  background: #302F2F;
+  border: none;
+}
+.modal-footer{
+  background: #302F2F;
+  border: none;
+}
+.modal-content{
+  background-color: #202021;
+  color: white;
+}
+.form-control{
+  background-color: #302F2F;
+  border: none;
+  color: white;
+}
+  .form-control:focus{
+    background-color: #181818;
+    color: white;
+  }
+.form-padding{
+  padding-bottom: 15px;
+}
+nav{
+  background-color: #3b3b3c;
+}
+.nav-link{
+  font-size: 1.4rem;
+}
+
+table{
+  margin-top: 50px;
+}
+.table-dark{
+  background-color: #3b3b3c;
+}
+.categoryTitle{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.tableHeader{
+  background-color: #E82E44;
+}
+
+.tableTitle{
+  font-size: 1.5rem;
+  font-weight: bolder;
+  letter-spacing: .3rem;
+}
+thead{
+  text-align: center;
+  background-color: #5a5a5b;
+}
+td{
+  padding: 20px;
+}
+td > a{
+  display: block;
+  color: white;
+}
+td > a:hover{
+  color: #ffcc03;
+}
+.search-group{
+  color: white;
+  padding: 30px;
+}
+.form-margin-bottom{
+  margin-bottom: 60px;
+}
+#pokemon_search{
+  border: 3px solid #E82E44;
+}
+#hidden_div{
+  display: none;
+}
+th{
+  background-color: #E82E44;
+}
+#categoriesTable, #topicsTable, #postsTable{
+  display: block;
+}
