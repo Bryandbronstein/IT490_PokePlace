@@ -116,11 +116,11 @@ function loadTopics() {
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            document.getElementById("topicssTable").innerHTML = this.responseText;
+            document.getElementById("topicsTable").innerHTML = this.responseText;
         }
 
     };
-    httpReq.open("GET", "functions.php?type=LoadTopics&cat_id=" + cat_id);
+    httpReq.open("GET", "functions.php?type=LoadTopics");
     httpReq.send(null);
 }
 function loadPosts() {
@@ -132,7 +132,7 @@ function loadPosts() {
         }
 
     };
-    httpReq.open("GET", "functions.php?type=LoadPosts&topic_id=" + topic_id);
+    httpReq.open("GET", "functions.php?type=LoadPosts");
     httpReq.send(null);
 }
 function checkCategoryFields(){
@@ -187,7 +187,7 @@ function createTopic(topicName, topicDesc) {
             }
         }
     };
-    httpReq.open("GET", "functions.php?type=CreateTopic&cat_id=" + cat_id + "&topicName=" + topicName + "&topicDesc=" + topicDesc);
+    httpReq.open("GET", "functions.php?type=CreateTopic&topicName=" + topicName + "&topicDesc=" + topicDesc);
     httpReq.send(null);
 }
 
@@ -214,7 +214,7 @@ function createPost(postText) {
 
         }
     };
-    httpReq.open("GET", "functions.php?type=CreatePost&postText=" + postText + "&topic_id=" + topic_id);
+    httpReq.open("GET", "functions.php?type=CreatePost&postText=" + postText );
     httpReq.send(null);
 }
 function showDiv(divId, element) {
@@ -269,6 +269,7 @@ function addPokemon() {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             if(this.responseText == true){
                 alert("Pokemon successfully added to your team!");
@@ -298,7 +299,7 @@ function loadPokemon() {
     httpReq.send(null);
 }
 
-function loadPokemon() {
+function leaderboard() {
 
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
@@ -316,19 +317,24 @@ function loadPokemon() {
 
 function battle() {
 
+    let username_toBattle = document.getElementById('username_toBattle').value;
+
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            document.getElementById("pokemon_results").innerHTML = this.responseText;
+            console.log(this.responseText);
+
+            if(this.responseText == 1){
+                alert("Congratulations, your team won!");
+                window.location = "leaderboard.php";
+            }if(this.responseText == 0){
+                alert("Sorry, you lose :(  Better luck next time!");
+                window.location = "leaderboard.php";
+            }
 
         }
     };
-    httpReq.open("GET", "functions.php?type=SinglePokeSearch");
+    httpReq.open("GET", "functions.php?type=Battle&useranme_toBattle=" + username_toBattle);
     httpReq.send(null);
 }
-
-
-
-
-
