@@ -265,7 +265,6 @@ switch ($type) {
         $response_json = createClientRequest($request);
         $response = json_decode($response_json);
 
-
         echo $response -> user1;
         break;
 

@@ -35,7 +35,7 @@ $_SESSION['username'] = "bob";
             <?php
             if (isset($_SESSION['username'])){
                 $username = $_SESSION['username'];
-                echo "<li class=\"nav-item dropdown\">
+                echo "<li class=\"nav-item dropdown active\">
                 <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                   Hello, $username
                 </a>

@@ -56,6 +56,7 @@ $_SESSION['topic_id'] = $_GET['id'];
 
 <div class="container">
     <div id="postsTable">
+        <!--
         <table class="table table-hover table-dark">
             <thead>
             <tr>
@@ -77,6 +78,7 @@ $_SESSION['topic_id'] = $_GET['id'];
             </tr>
             </tbody>
         </table>
+        -->
     </div>
     <button type="button" id="registerButtonId" class="btn btn-outline-warning btn-lg" data-toggle="modal" data-target="#replymodal"><i class="fas fa-edit"></i> Reply to Post</button>
 </div>

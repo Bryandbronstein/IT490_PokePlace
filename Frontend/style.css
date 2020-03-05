@@ -131,6 +131,6 @@ td > a:hover{
 th{
   background-color: #E82E44;
 }
-#categoriesTable, #topicsTable, #postsTable, #users_pokemon{
+#categoriesTable, #topicsTable, #postsTable, #users_pokemon, #leaderboard_results{
   display: block;
 }

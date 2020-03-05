@@ -10,7 +10,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Leaderboards</title>
 </head>
-<body onload="loadLeaderboard()">
+<body onload="leaderboard()">
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
