@@ -254,6 +254,21 @@ switch ($type) {
         echo $response;
         break;
 
+    case "Battle":
+
+        $request = array();
+
+        $request['type'] = "Battle";
+        $request['username_1'] = $_SESSION['username'];
+        $request['username_2'] = $_GET['useranme_toBattle'];
+
+        $response_json = createClientRequest($request);
+        $response = json_decode($response_json);
+
+
+        echo $response -> user1;
+        break;
+
 }
 //  This function will send a login request message to Db through RabbitMQ
 function login($username, $password)
@@ -299,5 +314,3 @@ function createClientRequest($request){
 }
 
 ?>
-
-
