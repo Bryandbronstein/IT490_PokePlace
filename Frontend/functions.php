@@ -244,6 +244,16 @@ switch ($type) {
         $response = createClientRequest($request);
         echo $response;
         break;
+
+    case "LoadLeaderboard":
+        $request = array();
+
+        $request['type'] = "LoadLeaderboard";
+
+        $response = createClientRequest($request);
+        echo $response;
+        break;
+
 }
 //  This function will send a login request message to Db through RabbitMQ
 function login($username, $password)

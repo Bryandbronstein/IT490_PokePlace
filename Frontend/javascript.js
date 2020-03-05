@@ -298,6 +298,22 @@ function loadPokemon() {
     httpReq.send(null);
 }
 
+function loadPokemon() {
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            console.log(this.responseText);
+            alert(this.responseText);
+            document.getElementById("leaderboard_results").innerHTML = this.responseText;
+
+        }
+    };
+    httpReq.open("GET", "functions.php?type=LoadLeaderboard");
+    httpReq.send(null);
+}
+
 function battle() {
 
     let httpReq = new XMLHttpRequest();
