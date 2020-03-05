@@ -1,2 +1,2 @@
-# IT490_PokePlace
-IT 490 Final Project
+# IT490-Spring2020
+

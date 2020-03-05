@@ -242,10 +242,77 @@ function createSearch(searchText, searchType) {
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            //document.getElementById("search_results").innerHTML = this.responseText;
-            alert(this.responseText);
+            document.getElementById("search_results").innerHTML = this.responseText;
+
         }
     };
     httpReq.open("GET", "functions.php?type=Search&searchType=" + searchType + "&searchText=" + searchText);
     httpReq.send(null);
 }
+
+function singlePokeSearch() {
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById("pokemon_results").innerHTML = this.responseText;
+
+        }
+    };
+    httpReq.open("GET", "functions.php?type=SinglePokeSearch");
+    httpReq.send(null);
+}
+
+function addPokemon() {
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            if(this.responseText == true){
+                alert("Pokemon successfully added to your team!");
+                window.location = "profile.php";
+            }else{
+                alert("Problem adding pokemon to your team.  Please try again.  Note: you may only have 6 pokeomon on your team ata time");
+            }
+        }
+    };
+    httpReq.open("GET", "functions.php?type=AddPokemon");
+    httpReq.send(null);
+}
+
+function loadPokemon() {
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            console.log(this.responseText);
+            alert(this.responseText);
+            document.getElementById("users_pokemon").innerHTML = this.responseText;
+
+        }
+    };
+    httpReq.open("GET", "functions.php?type=LoadPokemon");
+    httpReq.send(null);
+}
+
+function battle() {
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById("pokemon_results").innerHTML = this.responseText;
+
+        }
+    };
+    httpReq.open("GET", "functions.php?type=SinglePokeSearch");
+    httpReq.send(null);
+}
+
+
+
+
+

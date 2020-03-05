@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['username'] = "bob";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +9,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>$username's Profile</title>
+    <title><?php echo $_SESSION['username']?>'s Profile</title>
 </head>
-<body>
+<body onload="loadPokemon()">
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,20 +46,73 @@ session_start();
                 </div>
               </li>";
             }else {
-                echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#loginmodal\">Login In</button>";
+                echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#loginmodal\"><i class=\"fas fa-user-alt\"></i> Login In</button>";
             }
             ?>
         </ul>
     </div>
 </nav>
 
+<div class="container">
+ <h1 class="text-center">Hello, <?php echo $_SESSION['username']?>!</h1>
+    <h2 class="text-center">Here is a list of your current Pokemon team:</h2>
+    <div id="users_pokemon">
+    <!--
+         <table class="table table-hover table-dark">
+             <thead>
+             <tr>
+                 <th><span class="tableTitle">Pokemon #1</span></th>
+                 <th><span class="tableTitle">Pokemon #2</span></th>
+                 <th><span class="tableTitle">Pokemon #3</span></th>
+                 <th><span class="tableTitle">Pokemon #4</span></th>
+                 <th><span class="tableTitle">Pokemon #5</span></th>
+                 <th><span class="tableTitle">Pokemon #6</span></th>
+                 </tr>
+             </thead>
+             <tbody>
+             <tr>
+                 <td>' .$row['pokemon_1']. '</td>
+                 <td>' .$row['pokemon_2']. '</td>
+                 <td>' .$row['pokemon_3']. '</td>
+                 <td>' .$row['pokemon_4']. '</td>
+                 <td>' .$row['pokemon_5']. '</td>
+                 <td>' .$row['pokemon_6']. '</td>
+             </tr>
+             </tbody>
+         </table>
+         -->
+    </div>
+
+    <button type="button" id='battleButtonId' class="btn btn-danger btn-lg" data-toggle="modal" data-target="#battlemodal"'>Battle!</button>
+
+
+</div>
 
 
 
-
-
-
-
+<div class="modal fade" id="battlemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Battle!</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: white">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-padding username-group">
+                        <label for="username_toBattle">Enter the username of the person you wish to battle:</label>
+                        <input type="text" class="form-control" id="username_toBattle" aria-describedby="emailHelp">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="loginButtonId" class="btn btn-primary btn-lg" onclick="battle()">Start Battle!</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

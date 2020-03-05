@@ -5,6 +5,7 @@ html, body{
   margin: 0;
   padding: 0;
   background-color: #202021;
+  color: white;
 }
 #registerButtonId{
   margin: 0 auto;
@@ -130,6 +131,6 @@ td > a:hover{
 th{
   background-color: #E82E44;
 }
-#categoriesTable, #topicsTable, #postsTable{
+#categoriesTable, #topicsTable, #postsTable, #users_pokemon{
   display: block;
 }

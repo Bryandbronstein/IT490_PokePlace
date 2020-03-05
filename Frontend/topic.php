@@ -1,6 +1,6 @@
 <?php
 session_start();
-$topic_id = $_GET['id'];
+$_SESSION['topic_id'] = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,7 @@ $topic_id = $_GET['id'];
                 </div>
               </li>";
             }else {
-                echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#loginmodal\">Login In</button>";
+                echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#loginmodal\"><i class=\"fas fa-user-alt\"></i> Login In</button>";
             }
             ?>
         </ul>

@@ -46,7 +46,7 @@ session_start();
                 </div>
               </li>";
             }else {
-                echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#loginmodal\">Login In</button>";
+                echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#loginmodal\"><i class=\"fas fa-user-alt\"></i> Login In</button>";
             }
             ?>
         </ul>
@@ -66,24 +66,12 @@ session_start();
         <div id="hidden_div" class="form-margin-bottom">
             <label class="lead" for="pokemon_search"><h2>Now, search using your selected parameter below:</h2></label>
             <input type="text" class="form-control form-control-lg" id="pokemon_search" placeholder="Input your search criteria here">
-            <button style="margin-top: 10px;" class="btn btn-lg btn-outline-warning" type="button" onclick="checkSearchFields()">Search</button>
+            <button style="margin-top: 10px;" class="btn btn-lg btn-outline-warning" type="button" onclick="checkSearchFields()"><i class="fas fa-search"></i> Search</button>
         </div>
     </form>
 
     <div id="search_results">
-        <table class="table table-hover table-dark"
-            <thead>
-            <tr>
-                <th colspan="6"><span class="tableTitle">Search Results</span></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><a href="pokemon.php?name=' . $row['name'] . '"><span class="categoryTitle">' . $row['name'] . '</span></a></td>
-            </tr>
-            <tr>
-            </tbody>
-        </table>
+
 
     </div>
 

@@ -5,6 +5,7 @@ require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 
 session_start();
 $searchType = $_GET['searchType'];
+$pokeName = $_SESSION['pokeName'];
 $type = $_GET["type"];
 //  determines what kind of data was sent via javascript.js
 switch ($type) {
@@ -54,7 +55,7 @@ switch ($type) {
         $request = array();
 
         $request['type'] = "LoadTopics";
-        $request['cat_id'] = $_GET['cat_id'];
+        $request['cat_id'] = $_SESSION['cat_id'];
         $response = createClientRequest($request);
         echo $response;
         break;
@@ -64,7 +65,7 @@ switch ($type) {
 
         $request['type'] = "CreateTopics";
         $request['topic_subject'] = $_GET['topicName'];
-        $request['cat_id'] = $_GET['cat_id'];
+        $request['cat_id'] = $_SESSION['cat_id'];
 
         $response = createClientRequest($request);
         echo $response;
@@ -74,7 +75,7 @@ switch ($type) {
         $request = array();
 
         $request['type'] = "LoadPosts";
-        $request['topic_id'] = $_GET['topic_id'];
+        $request['topic_id'] = $_SESSION['topic_id'];
         $response = createClientRequest($request);
         echo $response;
         break;
@@ -84,7 +85,7 @@ switch ($type) {
 
         $request['type'] = "CreatePosts";
         $request['post_content'] = $_GET['postText'];
-        $request['topic_id'] = $_GET['topic_id'];
+        $request['topic_id'] = $_SESSION['topic_id'];
         $request['username'] = $_SESSION['username'];
 
         $response = createClientRequest($request);
@@ -124,6 +125,122 @@ switch ($type) {
                 $request['ability'] = $_GET['searchText'];
                 break;
             }
+
+        $response_json = createClientRequest($request);
+        $response = json_decode($response_json);
+
+        if ($response -> speed){
+
+            $_SESSION['pokeName'] = $response -> pokemonName;
+
+            $tempString .= '<h1 class="text-center">' .$response -> pokemonName . '</h1>';
+            $tempString .= '<table class="table table-hover table-dark">';
+            $tempString .= '<thead>';
+            $tempString .= '<tr>';
+                $tempString .= '<th><span class="tableTitle">HP</span></th>';
+                $tempString .= '<th><span class="tableTitle">Attack</span></th>';
+                $tempString .= '<th><span class="tableTitle">Defense</span></th>';
+                $tempString .= '<th><span class="tableTitle">Special Attack</span></th>';
+                $tempString .= '<th><span class="tableTitle">Special Defense</span></th>';
+                $tempString .= '<th><span class="tableTitle">Speed</span></th>';
+            $tempString .= '</tr>';
+            $tempString .= '</thead>';
+            $tempString .= '<tbody>';
+            $tempString .= '<tr>';
+                $tempString .= '<td>' .$response -> hp . '</td>';
+                $tempString .= '<td>' .$response -> atk. '</td>';
+                $tempString .= '<td>' .$response -> def. '</td>';
+                $tempString .= '<td>' .$response -> spAtk. '</td>';
+                $tempString .= '<td>' .$response -> spDef. '</td>';
+                $tempString .= '<td>' .$response -> speed. '</td>';
+            $tempString .= '</tr>';
+            $tempString .= '</tbody>';
+        $tempString .= '</table>';
+            $tempString .= '<button type="button" id="addPokemon" class="btn btn-outline-warning btn-lg" onclick="addPokemon()" ><i class="fas fa-edit"></i> Add Pokemon to Team</button>';
+
+
+        }else {
+
+            $pokemonList = $response->pokemonNames;
+
+            $tempString = "";
+            $tempString .= '<table class="table table-hover table-dark">';
+            $tempString .= "<thead>";
+            $tempString .= " <tr>";
+            $tempString .= '<th colspan="6"><span class="tableTitle">Search Results</span></th>';
+            $tempString .= "</tr>";
+            $tempString .= "</thead>";
+            $tempString .= "<tbody>";
+            $tempString .= "<tr>";
+            foreach ($pokemonList as $name) {
+                $tempString .= '<td><a href="pokemon.php?name=' . $name . '"><span class="categoryTitle">' . $name . '</span></a></td>';
+                $tempString .= "  </tr>";
+                $tempString .= " <tr>";
+            }
+            $tempString .= " </tbody>";
+            $tempString .= " </table>";
+        }
+        echo $tempString;
+        break;
+
+    case "SinglePokeSearch":
+        $request = array();
+
+        $request['type'] = "Search";
+        $request['name'] = $pokeName;
+        $request['pokemonNum'] = "na";
+        $request['pokeType'] = "na";
+        $request['ability'] = "na";
+
+        $response_json = createClientRequest($request);
+        $response = json_decode($response_json);
+
+        $tempString .= '<h1 class="text-center">' .$response -> pokemonName . '</h1>';
+        $tempString .= '<table class="table table-hover table-dark">';
+        $tempString .= '<thead>';
+        $tempString .= '<tr>';
+        $tempString .= '<th><span class="tableTitle">HP</span></th>';
+        $tempString .= '<th><span class="tableTitle">Attack</span></th>';
+        $tempString .= '<th><span class="tableTitle">Defense</span></th>';
+        $tempString .= '<th><span class="tableTitle">Special Attack</span></th>';
+        $tempString .= '<th><span class="tableTitle">Special Defense</span></th>';
+        $tempString .= '<th><span class="tableTitle">Speed</span></th>';
+        $tempString .= '</tr>';
+        $tempString .= '</thead>';
+        $tempString .= '<tbody>';
+        $tempString .= '<tr>';
+        $tempString .= '<td>' .$response -> hp . '</td>';
+        $tempString .= '<td>' .$response -> atk. '</td>';
+        $tempString .= '<td>' .$response -> def. '</td>';
+        $tempString .= '<td>' .$response -> spAtk. '</td>';
+        $tempString .= '<td>' .$response -> spDef. '</td>';
+        $tempString .= '<td>' .$response -> speed. '</td>';
+        $tempString .= '</tr>';
+        $tempString .= '</tbody>';
+        $tempString .= '</table>';
+        $tempString .= '<button type="button" id="addPokemon" class="btn btn-outline-warning btn-lg" onclick="addPokemon()" ><i class="fas fa-edit"></i> Add Pokemon to Team</button>';
+
+
+        echo $tempString;
+        break;
+
+    case "LoadPokemon":
+        $request = array();
+
+        $request['type'] = "LoadPokemon";
+        $request['username'] = $_SESSION['username'];
+
+        $response = createClientRequest($request);
+        echo $response;
+        break;
+
+    case "AddPokemon":
+        $request = array();
+
+        $request['type'] = "AddPokemon";
+        $request['username'] = $_SESSION['username'];
+        $request['pokemonName'] = $_SESSION{'pokeName'};
+
         $response = createClientRequest($request);
         echo $response;
         break;
