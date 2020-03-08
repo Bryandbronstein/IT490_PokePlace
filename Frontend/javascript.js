@@ -16,9 +16,8 @@ function sendLoginCredentials(username, password){
             document.getElementById("loginButtonId").innerHTML = "Login";
 
             console.log(this.responseText);
-            alert(this.responseText);
 
-            if(this.responseText == true){
+            if(this.responseText == 1){
                 alert("Logged in successfully");
                 window.location = "profile.php";
             }else{
@@ -39,6 +38,7 @@ function logout() {
         httpReq.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("logoutButtonId").innerHTML = "Logout";
+                console.log(this.responseText);
 
                 if (this.responseText == true) {
                     alert("Logged out successfully");
@@ -83,6 +83,7 @@ function sendRegisterCredentials(firstname, lastname, username, email, password)
     httpReq.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
             document.getElementById("registerButtonId").innerHTML = "Register";
+            console.log(this.responseText);
 
             if(this.responseText === "True"){
                 alert("Registered successfully!  You may now login with your new credentials");
@@ -103,6 +104,7 @@ function loadCategories() {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             document.getElementById("categoriesTable").innerHTML = this.responseText;
 
@@ -115,6 +117,7 @@ function loadTopics() {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             document.getElementById("topicsTable").innerHTML = this.responseText;
         }
@@ -127,6 +130,7 @@ function loadPosts() {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             document.getElementById("postsTable").innerHTML = this.responseText;
         }
@@ -151,6 +155,7 @@ function createCategory(catName, catDesc) {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             if(this.responseText == true){
                 alert("New category created successfully!");
@@ -178,10 +183,11 @@ function createTopic(topicName, topicDesc) {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             if(this.responseText == true){
                 alert("New topic created successfully!");
-                location.reload();
+                window.location = "category.php?id=" + cat_id;
             }else{
                 alert("Problems creating new topic.  Please try again");
             }
@@ -204,10 +210,11 @@ function createPost(postText) {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             if(this.responseText == true){
                 alert("New post created successfully!");
-                location.reload();
+                window.location = "forum.php";
             }else{
                 alert("Problems creating new category.  Please try again");
             }
@@ -241,6 +248,7 @@ function createSearch(searchText, searchType) {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             document.getElementById("search_results").innerHTML = this.responseText;
 
@@ -255,6 +263,7 @@ function singlePokeSearch() {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
 
             document.getElementById("pokemon_results").innerHTML = this.responseText;
 
@@ -290,7 +299,6 @@ function loadPokemon() {
         if (this.readyState == 4 && this.status == 200) {
 
             console.log(this.responseText);
-            alert(this.responseText);
             document.getElementById("users_pokemon").innerHTML = this.responseText;
 
         }
@@ -306,7 +314,6 @@ function leaderboard() {
         if (this.readyState == 4 && this.status == 200) {
 
             console.log(this.responseText);
-            alert(this.responseText);
             document.getElementById("leaderboard_results").innerHTML = this.responseText;
 
         }
@@ -325,10 +332,10 @@ function battle() {
 
             console.log(this.responseText);
 
-            if(this.responseText == 1){
+            if(this.responseText == 0){
                 alert("Congratulations, your team won!");
                 window.location = "leaderboard.php";
-            }if(this.responseText == 0){
+            }if(this.responseText == 1){
                 alert("Sorry, you lose :(  Better luck next time!");
                 window.location = "leaderboard.php";
             }
@@ -338,3 +345,8 @@ function battle() {
     httpReq.open("GET", "functions.php?type=Battle&useranme_toBattle=" + username_toBattle);
     httpReq.send(null);
 }
+
+
+
+
+

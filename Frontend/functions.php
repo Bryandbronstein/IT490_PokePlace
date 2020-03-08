@@ -127,7 +127,9 @@ switch ($type) {
             }
 
         $response_json = createClientRequest($request);
+
         $response = json_decode($response_json);
+        $tempString = "";
 
         if ($response -> speed){
 
@@ -158,12 +160,10 @@ switch ($type) {
         $tempString .= '</table>';
             $tempString .= '<button type="button" id="addPokemon" class="btn btn-outline-warning btn-lg" onclick="addPokemon()" ><i class="fas fa-edit"></i> Add Pokemon to Team</button>';
 
-
         }else {
 
-            $pokemonList = $response->pokemonNames;
+            $pokemonList = $response -> pokemonNames;
 
-            $tempString = "";
             $tempString .= '<table class="table table-hover table-dark">';
             $tempString .= "<thead>";
             $tempString .= " <tr>";
@@ -181,6 +181,7 @@ switch ($type) {
             $tempString .= " </table>";
         }
         echo $tempString;
+
         break;
 
     case "SinglePokeSearch":
@@ -306,10 +307,12 @@ function register($firstname, $lastname, $username, $email, $password)
 }
 //  creates rabbitMq client request
 function createClientRequest($request){
-    $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_db.ini", "testServer");
+    $client = new rabbitMQClient("/home/bryan/git/IT490-Spring2020/rabbitmqphp_example/rabbitMQ_db.ini", "testServer");
     $response = $client->send_request($request);
 
     return $response;
 }
 
 ?>
+
+

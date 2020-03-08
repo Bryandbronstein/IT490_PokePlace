@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['username'] = "bob";
+//$_SESSION['username'] = "bob";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +60,7 @@ $_SESSION['username'] = "bob";
         <p class="lead">A place to search for, discuss, and simulate battles with Pokemon!<br>  This site includes:<br>
         <div id="homepage_list">
             <ul>
-                <li>A robust search engine of all Pokemon up to Generation 7</li>
+                <li>A robust search engine of all Pokemon up to Generation 1</li>
                 <li>Forums for discussion</li>
                 <li>Battle simulation system</li>
                 <li>And leaderboards to rank the top competitors of those battles</li>

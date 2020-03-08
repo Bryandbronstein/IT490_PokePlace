@@ -56,7 +56,7 @@ $_SESSION['pokeName'] = $_GET['name'];
 
 <div style="margin-top: 30px;" class="container">
 
-    <div id="users_pokemon">
+    <div id="pokemon_results">
 
 
     </div>
