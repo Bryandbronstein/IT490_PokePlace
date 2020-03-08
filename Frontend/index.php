@@ -1,6 +1,6 @@
 <?php
 session_start();
-//$_SESSION['username'] = "bob";
+$_SESSION['username'] = "bob";
 ?>
 <!DOCTYPE html>
 <html lang="en">

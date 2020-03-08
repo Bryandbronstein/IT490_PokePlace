@@ -54,8 +54,8 @@ $_SESSION['username'] = "bob";
 </nav>
 
 <div class="container">
- <h1 class="text-center">Hello, <?php echo $_SESSION['username']?>!</h1>
-    <h2 class="text-center">Here is a list of your current Pokemon team:</h2>
+ <h1 >Hello, <?php echo $_SESSION['username']?>!</h1>
+    <h2 >Here is a list of your current Pokemon team:</h2>
     <div id="users_pokemon">
     <!--
          <table class="table table-hover table-dark">
@@ -83,7 +83,7 @@ $_SESSION['username'] = "bob";
          -->
     </div>
 
-    <button type="button" id='battleButtonId' class="btn btn-danger btn-lg" data-toggle="modal" data-target="#battlemodal"'>Battle!</button>
+    <button type="button" id='battleButtonId' class="btn btn-danger btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
 
 
 </div>
