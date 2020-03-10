@@ -1,0 +1,20 @@
+Repos
+========================================================================
+
+https://github.com/Bryandbronstein/IT490_PokePlace (most up to date)
+	Branches:
+	- master
+	- Frontend
+	- database
+	- dmz
+	- RabbitMQ
+
+
+https://github.com/amador2694/IT490-Spring2020 (older repo)
+	Branches:
+	- master
+	- mysql_example	
+	- test
+	- RabbitMQ
+
+
