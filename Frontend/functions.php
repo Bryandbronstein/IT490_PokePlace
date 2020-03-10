@@ -63,9 +63,10 @@ switch ($type) {
     case "CreateTopic":
         $request = array();
 
-        $request['type'] = "CreateTopics";
+        $request['type'] = "CreateTopic";
         $request['topic_subject'] = $_GET['topicName'];
         $request['cat_id'] = $_SESSION['cat_id'];
+        $request['username'] = $_SESSION['username'];
 
         $response = createClientRequest($request);
         echo $response;
@@ -148,7 +149,7 @@ switch ($type) {
             $tempString .= '</tr>';
             $tempString .= '</thead>';
             $tempString .= '<tbody>';
-            $tempString .= '<tr>';
+            $tempString .= '<tr class="text-center">';
                 $tempString .= '<td>' .$response -> hp . '</td>';
                 $tempString .= '<td>' .$response -> atk. '</td>';
                 $tempString .= '<td>' .$response -> def. '</td>';
@@ -209,7 +210,7 @@ switch ($type) {
         $tempString .= '</tr>';
         $tempString .= '</thead>';
         $tempString .= '<tbody>';
-        $tempString .= '<tr>';
+        $tempString .= '<tr class="text-center">';
         $tempString .= '<td>' .$response -> hp . '</td>';
         $tempString .= '<td>' .$response -> atk. '</td>';
         $tempString .= '<td>' .$response -> def. '</td>';
@@ -263,10 +264,9 @@ switch ($type) {
         $request['username_1'] = $_SESSION['username'];
         $request['username_2'] = $_GET['useranme_toBattle'];
 
-        $response_json = createClientRequest($request);
-        $response = json_decode($response_json);
+        $response = createClientRequest($request);
 
-        echo $response -> user1;
+        echo $response;
         break;
 
 }

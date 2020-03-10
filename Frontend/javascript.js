@@ -85,7 +85,7 @@ function sendRegisterCredentials(firstname, lastname, username, email, password)
             document.getElementById("registerButtonId").innerHTML = "Register";
             console.log(this.responseText);
 
-            if(this.responseText === "True"){
+            if(this.responseText == true){
                 alert("Registered successfully!  You may now login with your new credentials");
                 window.location = "index.php";
             }else{
@@ -187,7 +187,7 @@ function createTopic(topicName, topicDesc) {
 
             if(this.responseText == true){
                 alert("New topic created successfully!");
-                window.location = "category.php?id=" + cat_id;
+                location.reload();
             }else{
                 alert("Problems creating new topic.  Please try again");
             }
@@ -214,7 +214,7 @@ function createPost(postText) {
 
             if(this.responseText == true){
                 alert("New post created successfully!");
-                window.location = "forum.php";
+                location.reload();
             }else{
                 alert("Problems creating new category.  Please try again");
             }
@@ -332,10 +332,10 @@ function battle() {
 
             console.log(this.responseText);
 
-            if(this.responseText == 0){
+            if(this.responseText == 1){
                 alert("Congratulations, your team won!");
                 window.location = "leaderboard.php";
-            }if(this.responseText == 1){
+            }else{
                 alert("Sorry, you lose :(  Better luck next time!");
                 window.location = "leaderboard.php";
             }

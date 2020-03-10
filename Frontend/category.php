@@ -104,7 +104,7 @@ $_SESSION['cat_id'] = $_GET['id'];
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="loginButtonId" class="btn btn-warning btn-lg" onclick="checkTopicFields()c()">Submit</button>
+                <button type="button" id="loginButtonId" class="btn btn-warning btn-lg" onclick="checkTopicFields()">Submit</button>
             </div>
         </div>
     </div>
