@@ -83,8 +83,13 @@ session_start();
          -->
     </div>
 
-    <button type="button" id='battleButtonId' class="btn btn-danger btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
-
+    <div class="battleDiv">
+        <h2 style="font-weight: bolder; padding-bottom: 30px;">Time to Battle!</h2>
+        <img alt="An angry Snorlax" id="battle_image" class="img-fluid"
+             src="https://pngimage.net/wp-content/uploads/2018/06/pokemon-snorlax-png-7.png">
+        <h4>Click the button below to battle another user on the site!</h4>
+        <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
+    </div>
 
 </div>
 

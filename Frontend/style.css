@@ -137,3 +137,14 @@ th{
 .search-results{
   background-color: #5a5a5b;
 }
+.battleDiv{
+  margin: 40px 40px;
+  padding: 30px;
+  background: #E82E44;
+  text-align: center;
+}
+#battle_image{
+  max-width: 60%;
+  max-height: 35%;
+  padding-bottom: 30px;
+}
