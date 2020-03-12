@@ -33,7 +33,9 @@
 				//	}
 			//	}
 		}
-		return true;
+		$response = true;
+		return $response;
+		var_dump($response);
 		}
 
 
@@ -95,6 +97,7 @@ function register($username, $email, $password, $firstname, $lastname){
 		VALUES('$username', 0, 0)"; 
 
 	$result = $connection->query($newuser_query);
+	var_dump($result);
 	$result2 = $connection->query($leaderboard_query); 
 
 	return true;
@@ -146,7 +149,7 @@ function LoadCategories(){
 		    return $tempString;
 		}
 	}
-
+    
 }
 
 function LoadTopics($cat_id){
@@ -169,7 +172,7 @@ function LoadTopics($cat_id){
 		}
 		else
 		{
-
+		$tempString = "";
 		$tempString.= '<table border="1"><table class="table table-hover table-dark">';
            	$tempString.= "<thead>";
            	$tempString.= "<tr>";
@@ -194,6 +197,7 @@ function LoadTopics($cat_id){
 		}
 	}
 
+    
 }
 
 function LoadPosts($topic_id){
@@ -203,6 +207,13 @@ function LoadPosts($topic_id){
 	$sql = "SELECT * FROM posts WHERE post_topic = '$topic_id'";
 
 	$result = mysqli_query($connection,$sql);
+	$resultArray = mysqli_fetch_assoc($result);
+	$userid = $resultArray['post_by'];
+
+	$sqlusername = "SELECT username FROM users WHERE id = '$userid'";
+	$results = $connection->query($sqlusername);
+	$userAssoc = mysqli_fetch_assoc($results);
+	$username = $userAssoc['username'];
 
 	if(!$result){
 		echo 'The posts could not be displayed, please try again later.';
@@ -223,12 +234,8 @@ function LoadPosts($topic_id){
 		    $tempString.= '<tbody>';
 			while($row = mysqli_fetch_assoc($result)){
 			    $tempString.= '<tr>';
-			    $tempString.= '<td>' . $row['post_date'] . '</td>';
-			    $tempString.= '<td>' . $row['post_content'] . '</span></a></td>';
-			    $tempString.= '</tr>';
-			    $tempString.= '<tr>';
-			    $tempString.= '<td>' . $row['post_date'] . '</td>';
-			    $tempString.= '<td>' . $row['post_content'] . '</span></a></td>';
+			    $tempString.= '<td>Posted by: ' . $username . '</td>';
+			    $tempString.= '<td>' . $row['post_content'] . '</td>';
 			    $tempString.= '</tr>';
 			}
 		    $tempString.= '</tbody>';
@@ -237,7 +244,6 @@ function LoadPosts($topic_id){
 		    return $tempString;
 		}
 	}
-
 }
 
 function CreateCategories($cat_name, $cat_description){
@@ -251,14 +257,19 @@ function CreateCategories($cat_name, $cat_description){
 	return true;
 }
 
-function CreateTopic($topic_subject, $cat_id){
+function CreateTopics($topic_subject, $cat_id, $username){
 
         $connection = dbConnection();
 
-        $sqlCategory = "INSERT INTO topics(topic_subject, topic_cat) VALUES('$topic_subject', '$cat_id')";
+		$sqluserid = "SELECT id FROM users WHERE username = '$username'";
+		$results = $connection->query($sqluserid);
+		$userid = mysqli_fetch_array($results);
+
+
+        $sqlCategory = "INSERT INTO topics(topic_subject, topic_cat, topic_by) VALUES('$topic_subject', '$cat_id', '$userid[0]')";
 
         $result = $connection->query($sqlCategory);
-
+		var_dump($result);
         return true;
 }
 
@@ -266,15 +277,12 @@ function CreatePosts($post_content, $topic_id, $username){
 
 	$connection = dbConnection();
 
-	$post_by = "";
-	$sqlID = "SELECT * FROM users WHERE username = '$username'";
-	$idResult = $connection->query($sqlID);
+	$sqluserid = "SELECT id FROM users WHERE username = '$username'";
+	$results = $connection->query($sqluserid);
+	$userid = mysqli_fetch_array($results);
 
-	while($row = $idResult->fetch_assoc()) {
-        	$post_by = $row['id'];
-    	}
 
-	$sqlPost = "INSERT INTO posts(post_content, post_topic, post_by) VALUES('$post_content', '$topic_id', '$post_by')";
+	$sqlPost = "INSERT INTO posts(post_content, post_topic, post_by) VALUES('$post_content', '$topic_id', '$userid[0]')";
 	$result = $connection->query($sqlPost);
 
 	return true;
@@ -285,9 +293,10 @@ function parseSearch($search_json){
 
 	
 	$pokemonReturned = json_decode($search_json);
-	$pokemonList = $pokemonReturned -> pokemonNames;
+	$pokemonList = $pokemonReturned -> pokemonName;
 
-	$tempString = ""; 
+	$tempString = "";
+	$tempString .= '<table class="table table-hover table-dark search-results>"';
 	$tempString.="	<thead>";
           $tempString.="  <tr>";
             $tempString.=' <th colspan="6"><span class="tableTitle">Search Results</span></th>';
@@ -303,8 +312,8 @@ function parseSearch($search_json){
 	      $tempString.=" <tr>";
 		}
            $tempString.=" </tbody>";
-	   $tempString.=" </table>"; 
-	   return $tempString; 
+	   $tempString.=" </table>";
+	   return $tempString;
 }
 
 
@@ -337,7 +346,7 @@ function getPokemon($username){
                 $tempString.= " </tr>";
             $tempString.= "</thead>";
             $tempString.= "<tbody>";
-            $tempString.= " <tr>";
+            $tempString.= " <tr class='text-center'>";
                $tempString.= ' <td>' .$pokemon_1. '</td>';
                $tempString.= ' <td>' .$pokemon_2. '</td>';
                $tempString.= ' <td>' .$pokemon_3. '</td>';
@@ -411,25 +420,30 @@ function battle($username_1, $username_2){
 	$sql = "SELECT * FROM users WHERE username = '$username_1'"; 
 	
 	$resultRaw = mysqli_query($connection, $sql);
-        $username_1 = mysqli_fetch_assoc($resultRaw);
+	$username_1 = mysqli_fetch_assoc($resultRaw);
 
 	$sql2 = "SELECT * FROM users WHERE username = '$username_2'";
 
-        $resultRaw = mysqli_query($connection, $sql2);
-        $username_2 = mysqli_fetch_assoc($resultRaw);
+	$resultRaw = mysqli_query($connection, $sql2);
+    $username_2 = mysqli_fetch_assoc($resultRaw);
 
-	$request = [];
+
+
+	$request = array();
 	$request['type'] = 'Battle';
-	$request['username_1'] = [$username_1]; 
-	$request['username_2'] = [$username_2];
+	$request['username_1'] = $username_1;
+	$request['username_2'] = $username_2;
 
-	return $request; 	
+
+
+	return $request;
+
 }
 
 function leaderboard($user1, $user2, $u1R, $u2R){ 
 	$connection = dbConnection();
 
-	if($u1R = 0){
+	if($u1R == 0){
 		$sql = "UPDATE leaderboard SET losses = losses +1 WHERE username = '$user1'";
 		$sql2 = "UPDATE leaderboard SET wins = wins +1 WHERE username = '$user2'";
 
@@ -438,61 +452,60 @@ function leaderboard($user1, $user2, $u1R, $u2R){
 		return 0;
 	}
 	else{
-		$sql = "UPDATE leaderboard SET losses = losses +1 WHERE username = '$user2'";
+				$sql = "UPDATE leaderboard SET losses = losses +1 WHERE username = '$user2'";
                 $sql2 = "UPDATE leaderboard SET wins = wins +1 WHERE username = '$user1'";
 
                 $resultRaw = mysqli_query($connection, $sql);
-		$resultRaw2 = mysqli_query($connection, $sql2);
-		return 1;
+				$resultRaw2 = mysqli_query($connection, $sql2);
+				return 1;
 	}
 
 
 
 }	
 
-function loadLeaderboard(){
-	$connection = dbConnection(); 
+function loadLeaderboard()
+{
+	$connection = dbConnection();
 
-	$sql = "SELECT * FROM leaderboard"; 
-	
+	$sql = "SELECT * FROM leaderboard ORDER BY wins DESC";
 
-	$result = mysqli_query($connection,$sql);
-	 
 
-        if(!$result)
-        {
-                echo 'The categories could not be displayed, please try again later.';
-        }
-        else
-        {
-                if(mysqli_num_rows($result) == 0)
-                {
-                        echo 'No categories defined yet.';
-                }
-                else
-		{
+	$result = mysqli_query($connection, $sql);
+
+
+	if (!$result) {
+		echo 'The categories could not be displayed, please try again later.';
+	} else {
+		if (mysqli_num_rows($result) == 0) {
+			echo 'No categories defined yet.';
+		} else {
 			$tempString = "";
-			$tempString.= '<table class="table table-hover table-dark">';
-           $tempString.= " <thead>";
-           $tempString.= " <tr>";
-              $tempString.= ' <th><span class="tableTitle">Username</span></th>';
-               $tempString.= '<th><span class="tableTitle">Wins</span></th>';
-               $tempString.= '<th><span class="tableTitle">Losses</span></th>';	           $tempString.= '</tr>';
-           $tempString.= '</thead>';
-	       $tempString.= '<tbody>';
-	       while($row = mysqli_fetch_assoc($result)){ 
-		       
+			$tempString .= '<table class="table table-hover table-dark">';
+			$tempString .= " <thead>";
+			$tempString .= " <tr>";
+			$tempString .= ' <th><span class="tableTitle">Rank</span></th>';
+			$tempString .= ' <th><span class="tableTitle">Username</span></th>';
+			$tempString .= '<th><span class="tableTitle">Wins</span></th>';
+			$tempString .= '<th><span class="tableTitle">Losses</span></th>';
+			$tempString .= '</tr>';
+			$tempString .= '</thead>';
+			$tempString .= '<tbody>';
+			$count = 1;
+			while ($row = mysqli_fetch_assoc($result)) {
 
-           $tempString.= '<tr class="text-center">';
-               $tempString.= '<td>' . $row['username']. '</td>';
-               $tempString.= '<td>' . $row['wins']. '</td>';
-               $tempString.= '<td>' . $row['losses']. '</td>';
-	       $tempString.= " </tr>";
-	}
-           $tempString.= "</tbody>";
-       $tempString.= "</table>";
+				$tempString .= '<tr class="text-center">';
+				$tempString .= '<td>' . $count . '</td>';
+				$tempString .= '<td>' . $row['username'] . '</td>';
+				$tempString .= '<td>' . $row['wins'] . '</td>';
+				$tempString .= '<td>' . $row['losses'] . '</td>';
+				$tempString .= " </tr>";
+				$count++;
+			}
+			$tempString .= "</tbody>";
+			$tempString .= "</table>";
 
-	return $tempString; 
+			return $tempString;
 		}
 	}
 }
