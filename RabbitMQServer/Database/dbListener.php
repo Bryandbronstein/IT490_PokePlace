@@ -11,10 +11,11 @@
 	ini_set('log_errors', 'on');
 
 	function requestProcessor($request){
-	/*	echo "received request".PHP_EOL;
+		echo "received request".PHP_EOL;
 		echo $request['type'];
 		var_dump($request);
-	 */
+		$response_msg = "";
+
 		if(!isset($request['type'])){
 			return array('message'=>"ERROR: Message not found");
 		}
@@ -61,9 +62,9 @@
                         $response_msg = LoadTopics($request['cat_id']);
 			break;
 
-		case "CreateTopics":
+		case "CreateTopic":
                         echo "<br>in Create Topics";
-                        $response_msg = CreateTopics($request['topic_subject'], $request['cat_id']);
+                        $response_msg = CreateTopics($request['topic_subject'], $request['cat_id'], $request['username']);
 			break;
 
 		case "LoadPosts":
@@ -75,10 +76,11 @@
                         $response_msg = CreatePosts($request['post_content'], $request['topic_id'], $request['username']);
 			break; 
 		case "Search": 
-		//	echo "<br>in Search"; 
-			$search_json =createClientRequest($request);
-			$response_msg = parseSearch($search_json);
-			break; 
+		//	echo "<br>in Search";
+			$response_msg =createClientRequest($request);
+			//$uncashed_data =createClientRequest($request);
+			//$response_msg = cacheData($uncashed_data);
+			break;
 		 
 		case "LoadPokemon":
 			$response_msg = getPokemon($request['username']); 
@@ -90,37 +92,55 @@
 		 
 
 		case "Battle":
+			//query db with user 1 to get their pokemon - like you would if you load thier profile
+				//store that pokemonlist into an array called $arr1
+			//do same thing with user 2
+				//store in $arr2
+
+
+			//modificy method call below - with arr1, arr2
 			$dmzRequest = battle($request['username_1'], $request['username_2']);
 			$recieve_json = createClientRequest($dmzRequest);
 			$response_json = json_decode($recieve_json);
 			$user1_result = $response_json -> user1;
 			$user2_result = $response_json -> user2;
+			echo $user1_result . ' user 1 resultd';
+			echo $user2_result . 'user 2 resultd';
 		
-			$response_msg = leaderboard($request['username_1'], $request['username_2'], $user1_result, $user2_result);	
+			$response_msg = leaderboard($request['username_1'], $request['username_2'], $user1_result, $user2_result);
 				
 			break; 
 
 		case "LoadLeaderboard":
-			echo "find me bitch";
+
 			$response_msg = loadLeaderboard();
-		       echo "loader done";	
-			$response_msg = "test"; 
-			break; 
 
 
-		var_dump($response_msg);
-		return $response_msg;
+			break;
+
+		case "test":
+			echo "about to rtn";
+			$response_msg = "in case";
+			break;
+
+
+
+
+		//return $response_msg;
 		}
+		echo $response_msg;
+		return $response_msg;
 	}
 
 	$server = new rabbitMQServer('../rabbitmqphp_example/rabbitMQ_db.ini', 'testServer');
 
 	$server->process_requests('requestProcessor');
 
-	function createClientRequest($request){
-   		 $client = new rabbitMQClient("../rabbitmqphp_example/rabbitMQ_dmz.ini", "testServer");
-   	 $response = $client->send_request($request);
+	function createClientRequest($request)
+	{
+		$client = new rabbitMQClient("/home/aa2427/git/rabbitmqphp_example/rabbitMQ_dmz.ini", "testServer");
+		$response = $client->send_request($request);
 
-    	return $response;
+		return $response;
 	}
 	?>
