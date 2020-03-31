@@ -80,11 +80,36 @@ session_start();
         <img alt="An angry Snorlax" id="battle_image" class="img-fluid"
              src="https://pngimage.net/wp-content/uploads/2018/06/pokemon-snorlax-png-7.png">
         <h4>Click the button below to battle another user on the site!</h4>
-        <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
+        <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal"><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
     </div>
 
 </div>
 
+
+
+<div class="modal fade" id="battlemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Battle!</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: white">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-padding username-group">
+                        <label for="username_toBattle">Enter the username of the person you wish to battle:</label>
+                        <input type="text" class="form-control" id="username_toBattle" aria-describedby="emailHelp">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="loginButtonId" class="btn btn-primary btn-lg" onclick="battle()">Start Battle!</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
