@@ -269,6 +269,16 @@ switch ($type) {
         echo $response;
         break;
 
+    case "LoadUsers":
+        $request = array();
+
+        $request['type'] = "LoadUsers";
+
+        $response = createClientRequest($request);
+
+        echo $response;
+        break;
+
 }
 //  This function will send a login request message to Db through RabbitMQ
 function login($username, $password)

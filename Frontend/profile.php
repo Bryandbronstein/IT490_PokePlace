@@ -1,6 +1,6 @@
 <?php
 session_start();
-//$_SESSION['username'] = "bob";
+$_SESSION['username'] = "bob";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +55,7 @@ session_start();
 
 <div class="container">
  <h1 >Hello, <?php echo $_SESSION['username']?>!</h1>
-    <h2 >Here is a list of your current Pokemon team:</h2>
+    <h2 >Here is your current Pokemon team:</h2>
     <div id="users_pokemon">
     <!--
          <table class="table table-hover table-dark">
@@ -81,6 +81,33 @@ session_start();
              </tbody>
          </table>
          -->
+    </div>
+
+    <div id="friends_list">
+
+        <table id="friendslist_table" class="table table-hover table-dark">
+            <thead>
+            <tr>
+                <th colspan="6" id="friendslist_header"><span class="tableTitle">Friends List</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Bob</td>
+            </tr>
+            <tr>
+                <td>Bob</td>
+            </tr>
+            <tr>
+                <td>Bob</td>
+            </tr>
+            <tr>
+                <td>Bob</td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" id="addFriendButtonId" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#friendmodal"><i class="fas fa-user-plus"></i> Add Friend</button>
+
     </div>
 
     <div class="battleDiv">
@@ -114,6 +141,34 @@ session_start();
             </div>
             <div class="modal-footer">
                 <button type="button" id="loginButtonId" class="btn btn-primary btn-lg" onclick="battle()">Start Battle!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="friendmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Select a User to Add as Friend</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: white">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="functions.php" method="get">
+                    <div class="form-padding username-list-group">
+                        <!--<label><input type="checkbox" name="users[]" value=' .$row['username']. '>$row['username']</label>-->
+                        <input type="checkbox" id="test1" class="css-checkbox" name="users[]" value="" /><label for="test1" class="css-label">bb389</label>
+                        <input type="checkbox" id="test2" class="css-checkbox" /><label for="test2" class="css-label">bob</label>
+                        <input type="checkbox" id="test3" class="css-checkbox" /><label for="test3" class="css-label">hq33</label>
+                        <input type="checkbox" id="test4" class="css-checkbox" /><label for="test4" class="css-label">testusername</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="loginButtonId" class="btn btn-primary btn-lg" onclick="addFriends()">Add</button>
             </div>
         </div>
     </div>

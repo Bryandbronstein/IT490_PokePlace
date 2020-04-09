@@ -346,6 +346,32 @@ function battle() {
     httpReq.send(null);
 }
 
+function loadUsers() {
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            document.getElementById("user_list").innerHTML = this.responseText;
+        }
+
+    };
+    httpReq.open("GET", "functions.php?type=LoadUsers");
+    httpReq.send(null);
+}
+
+function addFriends() {
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            document.getElementById("user_list").innerHTML = this.responseText;
+        }
+
+    };
+    httpReq.open("GET", "functions.php?type=LoadUsers");
+    httpReq.send(null);
+}
+
 
 
 
