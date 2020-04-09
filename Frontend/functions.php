@@ -1,7 +1,7 @@
 <?php
-require_once('../rabbitmqphp_example/path.inc');
-require_once('../rabbitmqphp_example/get_host_info.inc');
-require_once('../rabbitmqphp_example/rabbitMQLib.inc');
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/path.inc');
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/get_host_info.inc');
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQLib.inc');
 
 session_start();
 //$searchType = $_GET['searchType'];
@@ -324,7 +324,7 @@ function register($firstname, $lastname, $username, $email, $password)
 }
 //  creates rabbitMq client request
 function createClientRequest($request){
-    $client = new rabbitMQClient("/home/bryan/git/IT490-Spring2020/rabbitmqphp_example/rabbitMQ_db.ini", "testServer");
+    $client = new rabbitMQClient("/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQ_db.ini", "testServer");
     $response = $client->send_request($request);
 
     return $response;
