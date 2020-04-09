@@ -371,7 +371,27 @@ function addFriends() {
     httpReq.open("GET", "functions.php?type=LoadUsers");
     httpReq.send(null);
 }
+function displayFriendsTEST() {
+    let checkboxes = document.getElementsByName("users[]");
+    let checkboxesChecked = [];
 
+    for (let i=0; i<checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            checkboxesChecked.push(checkboxes[i].value);
+        }
+    }
+
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            alert(this.responseText);
+        }
+
+    };
+    httpReq.open("GET", "functions.php?type=DisplayFriends&users=" + checkboxesChecked);
+    httpReq.send(null);
+}
 
 
 

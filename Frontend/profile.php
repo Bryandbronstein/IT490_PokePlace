@@ -115,7 +115,7 @@ $_SESSION['username'] = "bob";
         <img alt="An angry Snorlax" id="battle_image" class="img-fluid"
              src="https://pngimage.net/wp-content/uploads/2018/06/pokemon-snorlax-png-7.png">
         <h4>Click the button below to battle another user on the site!</h4>
-        <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
+        <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal" onclick="loadFriends()"><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
     </div>
 
 </div>
@@ -132,15 +132,26 @@ $_SESSION['username'] = "bob";
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-padding username-group">
-                        <label for="username_toBattle">Enter the username of the person you wish to battle:</label>
-                        <input type="text" class="form-control" id="username_toBattle" aria-describedby="emailHelp">
-                    </div>
-                </form>
+                <div class="form-padding username-list-group">
+                    <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle one of your friends</h3>
+                    <input type="checkbox" id="testa" class="css-checkbox" name="users[]" value="bb389" /><label for="testa" class="css-label">bb389</label>
+                    <input type="checkbox" id="testb" class="css-checkbox" name="users[]" value="bob" /><label for="testb" class="css-label">bob</label>
+                    <input type="checkbox" id="testc" class="css-checkbox" name="users[]" value="hq33" /><label for="testc" class="css-label">hq33</label>
+                    <input type="checkbox" id="testd" class="css-checkbox" name="users[]" value="testusername" /><label for="testd" class="css-label">testusername</label>
+                </div>
+                <div class="bordered-text-div">
+                    <div class="border-line"></div>
+                    <h2 class="bordered-text">Or</h2>
+                    <div class="border-line"></div>
+                </div>
+                <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle a random user</h3>
+                <div class="form-padding" style="text-align: center">
+                    <input type="checkbox" id="random" class="css-checkbox" name="random" value="random" /><label for="random" class="css-label">Random User</label>
+                </div>
+
             </div>
             <div class="modal-footer">
-                <button type="button" id="loginButtonId" class="btn btn-primary btn-lg" onclick="battle()">Start Battle!</button>
+                <button type="button" id='battleButtonId' class="btn btn-warning btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Start Battle! <i class="fas fa-bolt"></i></button>
             </div>
         </div>
     </div>
@@ -157,19 +168,20 @@ $_SESSION['username'] = "bob";
                 </button>
             </div>
             <div class="modal-body">
-                <form action="functions.php" method="get">
+                <form>
                     <div class="form-padding username-list-group">
                         <!--<label><input type="checkbox" name="users[]" value=' .$row['username']. '>$row['username']</label>-->
-                        <input type="checkbox" id="test1" class="css-checkbox" name="users[]" value="" /><label for="test1" class="css-label">bb389</label>
-                        <input type="checkbox" id="test2" class="css-checkbox" /><label for="test2" class="css-label">bob</label>
-                        <input type="checkbox" id="test3" class="css-checkbox" /><label for="test3" class="css-label">hq33</label>
-                        <input type="checkbox" id="test4" class="css-checkbox" /><label for="test4" class="css-label">testusername</label>
+                        <input type="checkbox" id="test1" class="css-checkbox" name="users[]" value="bb389" /><label for="test1" class="css-label">bb389</label>
+                        <input type="checkbox" id="test2" class="css-checkbox" name="users[]" value="bob" /><label for="test2" class="css-label">bob</label>
+                        <input type="checkbox" id="test3" class="css-checkbox" name="users[]" value="hq33" /><label for="test3" class="css-label">hq33</label>
+                        <input type="checkbox" id="test4" class="css-checkbox" name="users[]" value="testusername" /><label for="test4" class="css-label">testusername</label>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="submit" id="loginButtonId" class="btn btn-primary btn-lg" onclick="addFriends()">Add</button>
-            </div>
+                    <div class="modal-footer">
+                        <button type="button" id="loginButtonId" class="btn btn-primary btn-lg" onclick="displayFriendsTEST()">Add</button>
+                    </div>
+
         </div>
     </div>
 </div>
@@ -201,6 +213,7 @@ $_SESSION['username'] = "bob";
         </div>
     </div>
 </div>
+            <iframe name="hiddenFrame" width="0" height="0" style="display: none;"></iframe>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

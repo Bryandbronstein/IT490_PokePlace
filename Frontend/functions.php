@@ -4,8 +4,8 @@ require_once('../rabbitmqphp_example/get_host_info.inc');
 require_once('../rabbitmqphp_example/rabbitMQLib.inc');
 
 session_start();
-$searchType = $_GET['searchType'];
-$pokeName = $_SESSION['pokeName'];
+//$searchType = $_GET['searchType'];
+//$pokeName = $_SESSION['pokeName'];
 $type = $_GET["type"];
 //  determines what kind of data was sent via javascript.js
 switch ($type) {
@@ -277,6 +277,13 @@ switch ($type) {
         $response = createClientRequest($request);
 
         echo $response;
+        break;
+
+    case "DisplayFriends":
+        $response = $_GET['users'];
+
+        echo $response;
+
         break;
 
 }

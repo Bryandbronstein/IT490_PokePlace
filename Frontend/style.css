@@ -197,3 +197,19 @@ label.css-label {
   -ms-user-select: none;
   user-select: none;
 }
+
+.bordered-text-div {
+  max-height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.border-line{
+  min-height: 20px;
+  align-self: flex-start;
+  min-width: 180px;
+  max-width: 400px;
+  border-bottom: 2px solid #0069D9;
+}
