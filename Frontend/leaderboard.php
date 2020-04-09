@@ -91,26 +91,36 @@ session_start();
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">Time to Battle!</h2>
+                <h2 class="modal-title" id="exampleModalLabel">Battle!</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" style="color: white">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-padding username-group">
-                        <label for="username_toBattle">Enter the username of the person you wish to battle:</label>
-                        <input type="text" class="form-control" id="username_toBattle" aria-describedby="emailHelp">
-                    </div>
-                </form>
+                <div class="form-padding username-list-group">
+                    <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle one of your friends</h3>
+                    <input type="checkbox" id="testa" class="css-checkbox" name="users[]" value="bb389" /><label for="testa" class="css-label">bb389</label>
+                    <input type="checkbox" id="testb" class="css-checkbox" name="users[]" value="bob" /><label for="testb" class="css-label">bob</label>
+                    <input type="checkbox" id="testc" class="css-checkbox" name="users[]" value="hq33" /><label for="testc" class="css-label">hq33</label>
+                    <input type="checkbox" id="testd" class="css-checkbox" name="users[]" value="testusername" /><label for="testd" class="css-label">testusername</label>
+                </div>
+                <div class="bordered-text-div">
+                    <div class="border-line"></div>
+                    <h2 class="bordered-text">Or</h2>
+                    <div class="border-line"></div>
+                </div>
+                <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle a random user</h3>
+                <div class="form-padding" style="text-align: center">
+                    <input type="checkbox" id="random" class="css-checkbox" name="random" value="random" /><label for="random" class="css-label">Random User</label>
+                </div>
+
             </div>
             <div class="modal-footer">
-                <button type="button" id="loginButtonId" class="btn btn-primary btn-lg" onclick="battle()">Start Battle!</button>
+                <button type="button" id='battleButtonId' class="btn btn-warning btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Start Battle! <i class="fas fa-bolt"></i></button>
             </div>
         </div>
     </div>
 </div>
-
 
 <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
