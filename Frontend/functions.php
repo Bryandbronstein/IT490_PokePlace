@@ -4,10 +4,10 @@ require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/get_host_info
 require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQLib.inc');
 
 session_start();
-//$searchType = $_GET['searchType'];
-//$pokeName = $_SESSION['pokeName'];
-$type = $_GET["type"];
-//  determines what kind of data was sent via javascript.js
+$searchType = $_GET['searchType']; //from search.php
+$pokeName = $_SESSION['pokeName']; //from search.php
+$type = $_GET["type"]; //from javascript.js
+
 switch ($type) {
     case "Login":
         $username = $_GET["username"];
@@ -279,12 +279,30 @@ switch ($type) {
         echo $response;
         break;
 
-    case "DisplayFriends":
-        $response = $_GET['users'];
+    case "AddFriends":
+        $usersToAdd = $_GET['users']; //from javascript.js/profile.php
+        $request = array();
+
+        $request['type'] = "AddFriends";
+        $request['usersToAdd'] = $usersToAdd;
+        $request['username'] = $_SESSION['username'];
+
+        $response = createClientRequest($request);
 
         echo $response;
 
         break;
+
+    case "LoadFriends":
+        $request = array();
+
+        $request['type'] = "AddFriends";
+        $request['username'] = $_SESSION['username'];
+
+        $response = createClientRequest($request);
+
+        echo $response;
+
 
 }
 //  This function will send a login request message to Db through RabbitMQ

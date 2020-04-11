@@ -371,7 +371,7 @@ function addFriends() {
     httpReq.open("GET", "functions.php?type=LoadUsers");
     httpReq.send(null);
 }
-function displayFriendsTEST() {
+function addFriends() {
     let checkboxes = document.getElementsByName("users[]");
     let checkboxesChecked = [];
 
@@ -389,7 +389,7 @@ function displayFriendsTEST() {
         }
 
     };
-    httpReq.open("GET", "functions.php?type=DisplayFriends&users=" + checkboxesChecked);
+    httpReq.open("GET", "functions.php?type=AddFriends&users=" + checkboxesChecked);
     httpReq.send(null);
 }
 
