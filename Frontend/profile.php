@@ -84,6 +84,8 @@ $_SESSION['username'] = "bob";
          -->
     </div>
 
+
+
     <div id="friends_list">
 
         <table id="friendslist_table" class="table table-hover table-dark">
@@ -110,6 +112,9 @@ $_SESSION['username'] = "bob";
         <button type="button" id="addFriendButtonId" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#friendmodal"><i class="fas fa-user-plus"></i> Add Friend</button>
 
     </div>
+
+    <button type="button" id="addFriendButtonId" class="btn btn-outline-primary btn-lg" onclick="loadUsers()"><i class="fas fa-user-plus"></i> Add Friend</button>
+    <div id="user_list"></div>
 
     <div class="battleDiv">
         <h2 style="font-weight: bolder; padding-bottom: 30px;">Time to Battle!</h2>
