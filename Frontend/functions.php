@@ -296,7 +296,7 @@ switch ($type) {
     case "LoadFriends":
         $request = array();
 
-        $request['type'] = "AddFriends";
+        $request['type'] = "LoadFriends";
         $request['username'] = $_SESSION['username'];
 
         $response = createClientRequest($request);

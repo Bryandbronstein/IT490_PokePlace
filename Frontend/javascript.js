@@ -359,7 +359,7 @@ function loadUsers() {
     httpReq.send(null);
 }
 
-function addFriends() {
+function loadFriends() {
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {

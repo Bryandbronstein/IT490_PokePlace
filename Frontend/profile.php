@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['username'] = "bob";
+//$_SESSION['username'] = "bob";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +113,7 @@ $_SESSION['username'] = "bob";
 
     </div>
 
-    <button type="button" id="addFriendButtonId" class="btn btn-outline-danger btn-lg" onclick="loadUsers()"><i class="fas fa-user-plus"></i> TEST load users</button>
+    <button type="button" id="addFriendButtonId" class="btn btn-outline-danger btn-lg" onclick="loadFriends()"><i class="fas fa-user-plus"></i> TEST load friends</button>
     <div id="user_list"></div>
 
     <div class="battleDiv">
