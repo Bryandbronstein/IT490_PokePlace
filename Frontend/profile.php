@@ -88,27 +88,6 @@ session_start();
 
     <div id="friends_list">
 
-        <table id="friendslist_table" class="table table-hover table-dark">
-            <thead>
-            <tr>
-                <th colspan="6" id="friendslist_header"><span class="tableTitle">Friends List</span></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Bob</td>
-            </tr>
-            <tr>
-                <td>Bob</td>
-            </tr>
-            <tr>
-                <td>Bob</td>
-            </tr>
-            <tr>
-                <td>Bob</td>
-            </tr>
-            </tbody>
-        </table>
         <button type="button" id="addFriendButtonId" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#friendmodal"><i class="fas fa-user-plus"></i> Add Friend</button>
 
     </div>
@@ -185,7 +164,7 @@ session_start();
                 </form>
             </div>
                     <div class="modal-footer">
-                        <button type="button" id="loginButtonId" class="btn btn-primary btn-lg" onclick="displayFriendsTEST()">Add</button>
+                        <button type="button" id="loginButtonId" class="btn btn-primary btn-lg" onclick="addFriends()">Add</button>
                     </div>
 
         </div>

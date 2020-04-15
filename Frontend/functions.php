@@ -280,11 +280,10 @@ switch ($type) {
         break;
 
     case "AddFriends":
-        $usersToAdd = $_GET['users']; //from javascript.js/profile.php
         $request = array();
 
         $request['type'] = "AddFriends";
-        $request['usersToAdd'] = $usersToAdd;
+        $request['friendToAdd'] = $_GET['friendsToAdd'];
         $request['username'] = $_SESSION['username'];
 
         $response = createClientRequest($request);
@@ -347,7 +346,6 @@ function createClientRequest($request){
 
     return $response;
 }
-
 ?>
 
 

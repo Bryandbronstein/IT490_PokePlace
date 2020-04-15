@@ -368,7 +368,7 @@ function loadFriends() {
         }
 
     };
-    httpReq.open("GET", "functions.php?type=LoadUsers");
+    httpReq.open("GET", "functions.php?type=LoadFriends");
     httpReq.send(null);
 }
 function addFriends() {
@@ -385,11 +385,16 @@ function addFriends() {
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            alert(this.responseText);
+            if(this.responseText == true){
+                alert("Friend added");
+                window.location = "profile.php";
+            }else{
+                alert("Friend not added, please try again");
+            }
         }
 
     };
-    httpReq.open("GET", "functions.php?type=AddFriends&users=" + checkboxesChecked);
+    httpReq.open("GET", "functions.php?type=AddFriends&friendsToAdd=" + checkboxesChecked);
     httpReq.send(null);
 }
 
