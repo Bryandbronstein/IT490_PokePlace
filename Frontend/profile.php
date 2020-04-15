@@ -12,7 +12,7 @@ session_start();
     <link rel="icon" href="pokeball.png"/>
     <title><?php echo $_SESSION['username']?>'s Profile</title>
 </head>
-<body onload="loadPokemon()">
+<body onload="loadPokemon(); loadFriends();">
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -111,7 +111,7 @@ session_start();
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">Battle!</h2>
+                <h2 class="modal-title" id="exampleModalLabel">You can either...</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" style="color: white">&times;</span>
                 </button>

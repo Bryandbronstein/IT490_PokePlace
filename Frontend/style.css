@@ -204,12 +204,13 @@ label.css-label {
   flex-direction: row;
   align-content: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin: 30px 0 50px 0;
 }
 .border-line{
   min-height: 20px;
   align-self: flex-start;
   min-width: 180px;
   max-width: 400px;
-  border-bottom: 2px solid #0069D9;
+  margin: 0 10px 0 10px;
+  border-bottom: 3px solid #0069D9;
 }
