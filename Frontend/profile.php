@@ -113,7 +113,7 @@ $_SESSION['username'] = "bob";
 
     </div>
 
-    <button type="button" id="addFriendButtonId" class="btn btn-outline-primary btn-lg" onclick="loadUsers()"><i class="fas fa-user-plus"></i> Add Friend</button>
+    <button type="button" id="addFriendButtonId" class="btn btn-outline-danger btn-lg" onclick="loadUsers()"><i class="fas fa-user-plus"></i> TEST load users</button>
     <div id="user_list"></div>
 
     <div class="battleDiv">
