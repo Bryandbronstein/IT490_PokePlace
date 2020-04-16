@@ -85,7 +85,7 @@ session_start();
     </div>
 
     <div id="friends_list"></div>
-	<button type="button" id="addFriendButtonId" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#friendmodal" onclick="loadFriends()"><i class="fas fa-user-plus"></i> Add Friend</button>
+	<button type="button" id="addFriendButtonId" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#friendmodal" onclick="loadUsers()"><i class="fas fa-user-plus"></i> Add Friend</button>
 
 
     <div class="battleDiv">
