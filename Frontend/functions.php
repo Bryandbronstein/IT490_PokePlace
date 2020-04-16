@@ -279,7 +279,7 @@ switch ($type) {
 
 
         foreach ($userList_raw as $name){
-            $userList .= $name -> username;
+            $userList .= '<input type="checkbox" id="' .$name -> username. '" class="css-checkbox" name="users[]" value="' .$name -> username. '" /><label for="' .$name -> username. '" class="css-label">' .$name -> username. '</label>';
         }
 
         echo $userList;
