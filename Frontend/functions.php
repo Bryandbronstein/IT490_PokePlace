@@ -293,15 +293,14 @@ switch ($type) {
 
         $friendsListCheckboxes_json = createClientRequest($request);
         $friendsListCheckboxes_raw = json_decode($userList_json);
+        print_r($friendsListCheckboxes_raw);
 
+        /*
         foreach ($friendsListCheckboxes_raw as $name){
             $friendsListCheckboxes .= '<input type="checkbox" id="' .$name -> username. '" class="css-checkbox" name="users[]" value="' .$name -> username. '" /><label for="' .$name -> username. '" class="css-label">' .$name -> username. '</label>';
         }
-
-        echo $friendsListCheckboxes;
-
-        break;
-
+        */
+        echo $friendsListCheckboxes_raw;
 
         break;
 
