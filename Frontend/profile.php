@@ -150,12 +150,8 @@ session_start();
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="form-padding username-list-group">
-                        <!--<label><input type="checkbox" name="users[]" value=' .$row['username']. '>$row['username']</label>-->
-                        <input type="checkbox" id="test1" class="css-checkbox" name="users[]" value="bb389" /><label for="test1" class="css-label">bb389</label>
-                        <input type="checkbox" id="test2" class="css-checkbox" name="users[]" value="bob" /><label for="test2" class="css-label">bob</label>
-                        <input type="checkbox" id="test3" class="css-checkbox" name="users[]" value="hq33" /><label for="test3" class="css-label">hq33</label>
-                        <input type="checkbox" id="test4" class="css-checkbox" name="users[]" value="testusername" /><label for="test4" class="css-label">testusername</label>
+                    <div id="username_checklist" class="form-padding username-list-group">
+
                     </div>
                 </form>
             </div>
