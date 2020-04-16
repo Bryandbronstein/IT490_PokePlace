@@ -276,16 +276,16 @@ switch ($type) {
 
         $userList_json = createClientRequest($request);
         $userList = json_decode($userList_json);
-        var_dump($userList);
+        print_r($userList);
 
-        /*
-        $userList_checkboxes = "";
+                $userList_checkboxes = "";
 
         foreach ($userList as $name) {
-            $userList_checkboxes .= '<input type="checkbox" id="' .$name. '" class="css-checkbox" name="users[]" value="' .$name. '" /><label for="' .$name. '" class="css-label">' .$name. '</label>';
+            //$userList_checkboxes .= '<input type="checkbox" id="' .$name[0]. '" class="css-checkbox" name="users[]" value="' .$name. '" /><label for="' .$name. '" class="css-label">' .$name. '</label>';
+            $userList_checkboxes .= $name[0];
         }
-        */
-        echo $userList;
+        
+        echo $userList_checkboxes;
 
         break;
 
