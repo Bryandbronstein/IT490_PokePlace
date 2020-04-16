@@ -345,6 +345,8 @@ switch ($type) {
 
         echo $friendsTable;
 
+        break;
+
 
 }
 //  This function will send a login request message to Db through RabbitMQ
