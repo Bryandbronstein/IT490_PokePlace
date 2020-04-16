@@ -279,7 +279,7 @@ switch ($type) {
         var_dump($userList[0]);
 
         
-        echo $userList[0];
+        echo $userList;
 
         break;
 
