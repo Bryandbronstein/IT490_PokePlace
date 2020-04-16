@@ -277,7 +277,9 @@ switch ($type) {
         $userList_json = createClientRequest($request);
         $userList = json_decode($userList_json);
 
-        echo $userList[0]->username;
+        var_dump($userList[]->username);
+
+        echo $userList;
 
         break;
 
