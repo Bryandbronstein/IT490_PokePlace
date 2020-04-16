@@ -276,13 +276,16 @@ switch ($type) {
 
         $userList_json = createClientRequest($request);
         $userList = json_decode($userList_json);
+        var_dump($userList);
 
+        /*
         $userList_checkboxes = "";
 
         foreach ($userList as $name) {
             $userList_checkboxes .= '<input type="checkbox" id="' .$name. '" class="css-checkbox" name="users[]" value="' .$name. '" /><label for="' .$name. '" class="css-label">' .$name. '</label>';
         }
-        echo $userList_checkboxes;
+        */
+        echo $userList;
 
         break;
 
@@ -306,7 +309,6 @@ switch ($type) {
         $request['username'] = $_SESSION['username'];
 
         $friendsList_json = createClientRequest($request);
-
         $friendsList = json_decode($friendsList_json);
 
         $friendsTable = "";
