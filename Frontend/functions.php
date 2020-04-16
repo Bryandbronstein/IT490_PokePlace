@@ -295,23 +295,12 @@ switch ($type) {
         $friendsList_json = createClientRequest($request);
         $friendsList = json_decode($friendsList_json);
 
-        $friendsTable = "";
-        $friendsTable .= '<table id="friendslist_table" class="table table-hover table-dark">';
-        $friendsTable .= '<thead>';
-        $friendsTable .= '<tr>';
-        $friendsTable .= '<th colspan="6" id="friendslist_header"><span class="tableTitle">Friends List</span></th>';
-        $friendsTable .= '</tr>';
-        $friendsTable .= '</thead>';
-        $friendsTable .= '<tbody>';
         foreach ($friendsList as $name) {
-            $friendsTable .= '<tr>';
-            $friendsTable .= '<td>' .$name. '</td>';
-            $friendsTable .= '</tr>';
+            $friendsCheckboxes .= '<input type="checkbox" id="' .$name. '" class="css-checkbox" name="users[]" value="' .$name. '" /><label for="' .$name. '" class="css-label">' .$name. '</label>';
         }
-        $friendsTable .= '</tbody>';
-        $friendsTable .= '</table>';
 
-        echo $friendsTable;
+
+        echo $friendsCheckboxes;
 
         break;
 
