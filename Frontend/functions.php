@@ -275,9 +275,12 @@ switch ($type) {
         $request['type'] = "LoadUsers";
 
         $userList_json = createClientRequest($request);
-        $userList = json_decode($userList_json);
+        $userList_raw = json_decode($userList_json);
 
-        var_dump($userList[1]->username);
+
+        foreach ($userList_raw as $name){
+            $userList .= $name -> username;
+        }
 
         echo $userList;
 
