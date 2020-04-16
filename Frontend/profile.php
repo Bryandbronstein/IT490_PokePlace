@@ -112,7 +112,7 @@ session_start();
             <div class="modal-body">
                 <div class="form-padding username-list-group">
                     <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle one of your friends</h3>
-                    <div id="friends_list_battle"></div>
+                    <div id="friends_list_battle" class="username-list-group"></div>
                 </div>
                 <div class="bordered-text-div">
                     <div class="border-line"></div>
