@@ -290,6 +290,7 @@ switch ($type) {
         $request = array();
 
         $request['type'] = "LoadFriends";
+        $request['username'] = $_SESSION['username'];
 
         $friendsListCheckboxes_json = createClientRequest($request);
         $friendsListCheckboxes_raw = json_decode($userList_json);
