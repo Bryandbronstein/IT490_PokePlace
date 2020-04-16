@@ -81,7 +81,7 @@ session_start();
     <img alt="An angry Snorlax" id="battle_image" class="img-fluid"
          src="https://pngimage.net/wp-content/uploads/2018/06/pokemon-snorlax-png-7.png">
     <h4>Click the button below to battle another user on the site!</h4>
-    <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal"><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
+    <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal" onclick="loadFriendsCheckboxes()"><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
 </div>
 
 </div>
@@ -92,18 +92,15 @@ session_start();
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">Battle!</h2>
+                <h2 class="modal-title" id="exampleModalLabel">You can either...</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" style="color: white">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-padding username-list-group">
+                <div class="form-padding">
                     <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle one of your friends</h3>
-                    <input type="checkbox" id="testa" class="css-checkbox" name="users[]" value="bb389" /><label for="testa" class="css-label">bb389</label>
-                    <input type="checkbox" id="testb" class="css-checkbox" name="users[]" value="bob" /><label for="testb" class="css-label">bob</label>
-                    <input type="checkbox" id="testc" class="css-checkbox" name="users[]" value="hq33" /><label for="testc" class="css-label">hq33</label>
-                    <input type="checkbox" id="testd" class="css-checkbox" name="users[]" value="testusername" /><label for="testd" class="css-label">testusername</label>
+                    <div id="friends_list_battle" class="username-list-group"></div>
                 </div>
                 <div class="bordered-text-div">
                     <div class="border-line"></div>
@@ -112,12 +109,12 @@ session_start();
                 </div>
                 <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle a random user</h3>
                 <div class="form-padding" style="text-align: center">
-                    <input type="checkbox" id="random" class="css-checkbox" name="random" value="random" /><label for="random" class="css-label">Random User</label>
+                    <input type="checkbox" id="random" class="css-checkbox" name="usersToBattle[]" value="random" /><label for="random" class="css-label">Random User</label>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" id='battleButtonId' class="btn btn-warning btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Start Battle! <i class="fas fa-bolt"></i></button>
+                <button type="button" id='battleButtonId' class="btn btn-warning btn-lg" data-toggle="modal" onclick="battle()"><i class="fas fa-bolt"></i> Start Battle! <i class="fas fa-bolt"></i></button>
             </div>
         </div>
     </div>
