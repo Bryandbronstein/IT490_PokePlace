@@ -284,7 +284,7 @@ switch ($type) {
             $userList_checkboxes .= '<input type="checkbox" id="' .$name. '" class="css-checkbox" name="users[]" value="' .$name. '" /><label for="' .$name. '" class="css-label">' .$name. '</label>';
         }
         */
-        echo $userList[0];
+        echo $userList;
 
         break;
 
