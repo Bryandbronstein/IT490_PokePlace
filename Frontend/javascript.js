@@ -364,7 +364,8 @@ function loadFriends() {
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            document.getElementById("user_list").innerHTML = this.responseText;
+            alert(this.responseText);
+            document.getElementById("friends_list").innerHTML = this.responseText;
         }
 
     };

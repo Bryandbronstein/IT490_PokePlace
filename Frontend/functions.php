@@ -1,7 +1,7 @@
 <?php
-require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/path.inc');
-require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/get_host_info.inc');
-require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQLib.inc');
+//require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/path.inc');
+//require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/get_host_info.inc');
+//require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQLib.inc');
 
 session_start();
 $searchType = $_GET['searchType']; //from search.php
@@ -298,9 +298,26 @@ switch ($type) {
         $request['type'] = "LoadFriends";
         $request['username'] = $_SESSION['username'];
 
-        $response = createClientRequest($request);
+        $friendsList_json = createClientRequest($request);
 
-        echo $response;
+        $friendsList = json_decode($friendsList_json);
+
+        $friendsTable = '<table id="friendslist_table" class="table table-hover table-dark">';
+        $friendsTable = '<thead>';
+        $friendsTable = '<tr>';
+        $friendsTable = '<th colspan="6" id="friendslist_header"><span class="tableTitle">Friends List</span></th>';
+        $friendsTable = '</tr>';
+        $friendsTable = '</thead>';
+        $friendsTable = '<tbody>';
+    foreach ($friendsList as $name) {
+        $friendsTable = '<tr>';
+        $friendsTable = '<td>' .$name. '</td>';
+        $friendsTable = '</tr>';
+    }
+        $friendsTable = '</tbody>';
+        $friendsTable = '</table>';
+
+        echo $friendsTable;
 
 
 }
