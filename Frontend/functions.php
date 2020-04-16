@@ -294,7 +294,7 @@ switch ($type) {
 
         $friendsListCheckboxes_json = createClientRequest($request);
         $friendsListCheckboxes_raw = json_decode($userList_json);
-        print_r($friendsListCheckboxes_raw);
+        var_dump($friendsListCheckboxes_raw);
 
         /*
         foreach ($friendsListCheckboxes_raw as $name){
