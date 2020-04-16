@@ -110,7 +110,7 @@ session_start();
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-padding username-list-group">
+                <div class="form-padding">
                     <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle one of your friends</h3>
                     <div id="friends_list_battle" class="username-list-group"></div>
                 </div>
@@ -121,12 +121,12 @@ session_start();
                 </div>
                 <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle a random user</h3>
                 <div class="form-padding" style="text-align: center">
-                    <input type="checkbox" id="random" class="css-checkbox" name="random" value="random" /><label for="random" class="css-label">Random User</label>
+                    <input type="checkbox" id="random" class="css-checkbox" name="usersToBattle[]" value="random" /><label for="random" class="css-label">Random User</label>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" id='battleButtonId' class="btn btn-warning btn-lg" data-toggle="modal" data-target="#battlemodal"'><i class="fas fa-bolt"></i> Start Battle! <i class="fas fa-bolt"></i></button>
+                <button type="button" id='battleButtonId' class="btn btn-warning btn-lg" data-toggle="modal" onclick="battle()"><i class="fas fa-bolt"></i> Start Battle! <i class="fas fa-bolt"></i></button>
             </div>
         </div>
     </div>

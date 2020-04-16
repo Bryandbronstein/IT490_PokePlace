@@ -323,9 +323,14 @@ function leaderboard() {
 }
 
 function battle() {
+    let checkboxes = document.getElementsByName("usersToBattle[]");
+    let checkboxesChecked = [];
 
-    let username_toBattle = document.getElementById('username_toBattle').value;
-
+    for (let i=0; i<checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            checkboxesChecked.push(checkboxes[i].value);
+        }
+    }
     let httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -342,7 +347,7 @@ function battle() {
 
         }
     };
-    httpReq.open("GET", "functions.php?type=Battle&useranme_toBattle=" + username_toBattle);
+    httpReq.open("GET", "functions.php?type=Battle&useranme_toBattle=" + checkboxesChecked);
     httpReq.send(null);
 }
 
