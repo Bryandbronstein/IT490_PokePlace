@@ -351,7 +351,7 @@ function loadUsers() {
     httpReq.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            document.getElementById("user_list").innerHTML = this.responseText;
+            document.getElementById("username_checklist").innerHTML = this.responseText;
         }
 
     };
