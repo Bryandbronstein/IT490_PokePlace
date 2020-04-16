@@ -296,7 +296,7 @@ switch ($type) {
         $friendsList = json_decode($friendsList_json);
 
         foreach ($friendsList as $name) {
-            $friendsCheckboxes .= '<input type="checkbox" id="' .$name. '" class="css-checkbox" name="users[]" value="' .$name. '" /><label for="' .$name. '" class="css-label">' .$name. '</label>';
+            $friendsCheckboxes .= '<input type="checkbox" id="' .$name. '" class="css-checkbox" name="users[]" value="' .$name. '" /><label for="' .$name. '" class="css-label">' .$name. '</label><br/><br/>';
         }
 
 
