@@ -302,20 +302,21 @@ switch ($type) {
 
         $friendsList = json_decode($friendsList_json);
 
-        $friendsTable = '<table id="friendslist_table" class="table table-hover table-dark">';
-        $friendsTable = '<thead>';
-        $friendsTable = '<tr>';
-        $friendsTable = '<th colspan="6" id="friendslist_header"><span class="tableTitle">Friends List</span></th>';
-        $friendsTable = '</tr>';
-        $friendsTable = '</thead>';
-        $friendsTable = '<tbody>';
+        $friendsTable = "";
+        $friendsTable .= '<table id="friendslist_table" class="table table-hover table-dark">';
+        $friendsTable .= '<thead>';
+        $friendsTable .= '<tr>';
+        $friendsTable .= '<th colspan="6" id="friendslist_header"><span class="tableTitle">Friends List</span></th>';
+        $friendsTable .= '</tr>';
+        $friendsTable .= '</thead>';
+        $friendsTable .= '<tbody>';
     foreach ($friendsList as $name) {
-        $friendsTable = '<tr>';
-        $friendsTable = '<td>' .$name. '</td>';
-        $friendsTable = '</tr>';
+        $friendsTable .= '<tr>';
+        $friendsTable .= '<td>' .$name. '</td>';
+        $friendsTable .= '</tr>';
     }
-        $friendsTable = '</tbody>';
-        $friendsTable = '</table>';
+        $friendsTable .= '</tbody>';
+        $friendsTable .= '</table>';
 
         echo $friendsTable;
 
