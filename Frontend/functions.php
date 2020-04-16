@@ -286,6 +286,25 @@ switch ($type) {
 
         break;
 
+    case 'LoadFriendsCheckboxes':
+        $request = array();
+
+        $request['type'] = "LoadFriends";
+
+        $friendsListCheckboxes_json = createClientRequest($request);
+        $friendsListCheckboxes_raw = json_decode($userList_json);
+
+        foreach ($friendsListCheckboxes_raw as $name){
+            $friendsListCheckboxes .= '<input type="checkbox" id="' .$name -> username. '" class="css-checkbox" name="users[]" value="' .$name -> username. '" /><label for="' .$name -> username. '" class="css-label">' .$name -> username. '</label>';
+        }
+
+        echo $friendsListCheckboxes;
+
+        break;
+
+
+        break;
+
     case "AddFriends":
         $request = array();
 

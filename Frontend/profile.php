@@ -93,7 +93,7 @@ session_start();
         <img alt="An angry Snorlax" id="battle_image" class="img-fluid"
              src="https://pngimage.net/wp-content/uploads/2018/06/pokemon-snorlax-png-7.png">
         <h4>Click the button below to battle another user on the site!</h4>
-        <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal" onclick="loadFriends()"><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
+        <button type="button" id='battleButtonId' class="btn btn-dark btn-lg" data-toggle="modal" data-target="#battlemodal" onclick="loadFriendsCheckboxes()"><i class="fas fa-bolt"></i> Battle! <i class="fas fa-bolt"></i></button>
     </div>
 
 </div>
@@ -112,10 +112,7 @@ session_start();
             <div class="modal-body">
                 <div class="form-padding username-list-group">
                     <h3 style="font-weight: bold; text-align: center; margin-bottom: 20px;">Battle one of your friends</h3>
-                    <input type="checkbox" id="testa" class="css-checkbox" name="users[]" value="bb389" /><label for="testa" class="css-label">bb389</label>
-                    <input type="checkbox" id="testb" class="css-checkbox" name="users[]" value="bob" /><label for="testb" class="css-label">bob</label>
-                    <input type="checkbox" id="testc" class="css-checkbox" name="users[]" value="hq33" /><label for="testc" class="css-label">hq33</label>
-                    <input type="checkbox" id="testd" class="css-checkbox" name="users[]" value="testusername" /><label for="testd" class="css-label">testusername</label>
+                    <div id="friends_list_battle"></div>
                 </div>
                 <div class="bordered-text-div">
                     <div class="border-line"></div>

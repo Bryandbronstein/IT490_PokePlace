@@ -371,6 +371,20 @@ function loadFriends() {
     httpReq.open("GET", "functions.php?type=LoadFriends");
     httpReq.send(null);
 }
+
+function loadFriendsCheckboxes() {
+    let httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            document.getElementById("friends_list_battle").innerHTML = this.responseText;
+        }
+
+    };
+    httpReq.open("GET", "functions.php?type=LoadFriendsCheckboxes");
+    httpReq.send(null);
+}
+
 function addFriends() {
     let checkboxes = document.getElementsByName("users[]");
     let checkboxesChecked = [];
