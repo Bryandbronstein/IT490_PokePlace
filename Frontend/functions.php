@@ -278,14 +278,8 @@ switch ($type) {
         $userList = json_decode($userList_json);
         print_r($userList);
 
-        $userList_checkboxes = "";
-
-        foreach ($userList as $name) {
-            //$userList_checkboxes .= '<input type="checkbox" id="' .$name[0]. '" class="css-checkbox" name="users[]" value="' .$name. '" /><label for="' .$name. '" class="css-label">' .$name. '</label>';
-            $userList_checkboxes .= $name;
-        }
         
-        echo $userList_checkboxes;
+        echo $userList;
 
         break;
 
