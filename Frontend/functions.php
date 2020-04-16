@@ -275,8 +275,8 @@ switch ($type) {
         $request['type'] = "LoadUsers";
 
         $userList_json = createClientRequest($request);
-        $userList = json_decode($userList_json);
-        var_dump($userList);
+        $userList_raw = json_decode($userList_json);
+        $userList = $userList_raw -> username;
 
         /*
         $userList_checkboxes = "";
