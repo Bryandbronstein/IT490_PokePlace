@@ -276,6 +276,7 @@ switch ($type) {
 
         $userList_json = createClientRequest($request);
         $userList = json_decode($userList_json);
+        var_dump($userList);
 
         /*
         $userList_checkboxes = "";
