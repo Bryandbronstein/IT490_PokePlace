@@ -292,16 +292,16 @@ switch ($type) {
         $request['type'] = "LoadFriends";
         $request['username'] = $_SESSION['username'];
 
-        $friendsListCheckboxes_json = createClientRequest($request);
-        $friendsListCheckboxes_raw = json_decode($friendsListCheckboxes_json);
-        var_dump($friendsListCheckboxes_raw);
+        $friendsList_json = createClientRequest($request);
+        $friendsList = json_decode($friendsList_json);
+        var_dump($friendsList);
 
         /*
         foreach ($friendsListCheckboxes_raw as $name){
             $friendsListCheckboxes .= '<input type="checkbox" id="' .$name -> username. '" class="css-checkbox" name="users[]" value="' .$name -> username. '" /><label for="' .$name -> username. '" class="css-label">' .$name -> username. '</label>';
         }
         */
-        echo $friendsListCheckboxes_raw;
+        echo $friendsList;
 
         break;
 
