@@ -1,35 +1,36 @@
 <?php
 
 function bundleFiles(){
-    //CREATES A .tar ARCHIVE
+    //STEPS TO MAKE THIS SCRIPT WORK
+    //1. create empty directories "directoryToBuild" and "directoryToSend"
+    //2. Ensure paths to these folders are correct
+    //3. any time you see frontend, replace it with the name of your machine (backend, dmz, etc.)
+
     $a = new PharData('../directoryToBuild/frontendBundle.tar');
-
-    //ADDS FILES TO THE ARCHIVE FROM A SPECIFIED FOLDER
     $a->buildFromDirectory('../directoryToBuild');
-
-    // COMPRESS THE .tar FILE
     $a->compress(Phar::GZ);
-
-    //MOVES THE .tar.gz ARCHIVE FROM "directoryToBuild" TO "directoryToSend"
     rename('../directoryToBuild/frontendBundle.tar.gz', '../directoryToSend/frontendBundle.tar.gz');
 
-    //DELETES ALL FILE COPIES IN "directoryToBuild"
     $files = glob('../directoryToBuild/*');
     foreach($files as $file){
         if(is_file($file))
             unlink($file);
     }
 
-    //VAR DUMPS A LIST OF ALL FILES IN "directoryToSend" FOR ERROR CHECKING
-    $files = scandir('../directoryToSend');
-    var_dump($files);
+    $output = shell_exec("sudo sshpass -p 'password' scp ../directoryToSend/frontendBundle.tar.gz ubuntu@10.0.0.201:/home/ubuntu/");
 
-    //CREATES REQUEST TO SEND TO DEPLOYMENT SERVER LISTENER
+    //var dumps for error checking
+    $files = scandir('../directoryToSend');
+    echo "Var dump of _directoryToSend_ contents: ";
+    var_dump($files);
+    echo "Var dump of _scp command_ output: ";
+    var_dump($output);
+
     $request = array();
     $request['type'] = "frontend";
 
-    //SENDS REQUEST THEN ECHOS RESPONSE FROM THE DEPLOYMENT SERVER
     $response = createClientRequest($request);
+    echo "Response from deployment server: ";
     echo $response;
 
 
