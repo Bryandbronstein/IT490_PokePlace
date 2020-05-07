@@ -16,6 +16,7 @@
             unlink($file);
     }
 
+
     $output = shell_exec("sudo sshpass -p 'password' scp /home/ubuntu/git/IT490_PokePlace/directoryToSend/frontendBundle.tar.gz ubuntu@10.0.0.201:/home/ubuntu/versions/frontend");
 
     //var dumps for error checking
@@ -24,6 +25,13 @@
     var_dump($files);
     echo "Var dump of _scp command_ output: ";
     var_dump($output);
+
+    $files2 = glob('/home/ubuntu/git/IT490_PokePlace/directoryToSend/*');
+    foreach($files2 as $file){
+        if(is_file($file))
+            unlink($file);
+    }
+
 
     $request = array();
     $request['type'] = "deploy_frontend";
