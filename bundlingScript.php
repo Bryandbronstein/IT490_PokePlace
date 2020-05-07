@@ -26,7 +26,7 @@
     var_dump($output);
 
     $request = array();
-    $request['type'] = "frontend";
+    $request['type'] = "deploy_frontend";
 
     $response = createClientRequest($request);
     echo "Response from deployment server: ";
