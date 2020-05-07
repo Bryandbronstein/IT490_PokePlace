@@ -1,8 +1,9 @@
 <?php
     //STEPS TO MAKE THIS SCRIPT WORK
-    //1. create empty directories "directoryToBuild" and "directoryToSend"
-    //2. Ensure paths to these folders are correct
-    //3. any time you see frontend, replace it with the name of your machine (backend, dmz, etc.)
+    //1. Create empty directories "directoryToBuild" and "directoryToSend"
+    //2. Set permissions for these directories: "sudo chmod 777 PATH_TO_DIRECTORIES"
+    //3. Edit paths within this script to match the paths to the directories you just created
+    //4. Any time you see frontend, replace it with the name of your machine (backend, dmz, etc.)
 
     $a = new PharData('/home/ubuntu/git/IT490_PokePlace/directoryToBuild/frontendBundle.tar');
     $a->buildFromDirectory('/home/ubuntu/git/IT490_PokePlace/directoryToBuild');
