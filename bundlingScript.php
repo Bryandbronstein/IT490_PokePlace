@@ -16,7 +16,7 @@
             unlink($file);
     }
 
-    $output = shell_exec("sudo sshpass -p 'password' scp ../directoryToSend/frontendBundle.tar.gz ubuntu@10.0.0.201:/home/ubuntu/");
+    $output = shell_exec("sudo sshpass -p 'password' scp /home/ubuntu/git/IT490_PokePlace/directoryToSend/frontendBundle.tar.gz ubuntu@10.0.0.201:/home/ubuntu/");
 
     //var dumps for error checking
     $files = scandir('/home/ubuntu/git/IT490_PokePlace/directoryToSend');
@@ -35,7 +35,7 @@
 
     //CODE FOR RMQ REQUEST
     function createClientRequest($request){
-        $client = new rabbitMQClient("/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQ_db.ini", "testServer");
+        $client = new rabbitMQClient("/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQ_deployment.ini", "testServer");
         $response = $client->send_request($request);
 
         return $response;
