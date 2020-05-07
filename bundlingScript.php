@@ -16,7 +16,7 @@
             unlink($file);
     }
 
-    //$output = shell_exec("sudo sshpass -p 'password' scp ../directoryToSend/frontendBundle.tar.gz ubuntu@10.0.0.201:/home/ubuntu/");
+    $output = shell_exec("sudo sshpass -p 'password' scp ../directoryToSend/frontendBundle.tar.gz ubuntu@10.0.0.201:/home/ubuntu/");
 
     //var dumps for error checking
     $files = scandir('/home/ubuntu/git/IT490_PokePlace/directoryToSend');
