@@ -20,7 +20,7 @@ function requestProcessor($request)
 
         case "install_frontend":
             $file = scandir("/home/ubuntu/filesToInstall", 1);
-            $response_msg = exec('tar -xzf ' .$file[0]. ' --directory /home/ubuntu/git/IT490_PokePlace/Frontend');
+            $response_msg = exec('tar -xzf --overwrite ' .$file[0]. ' --directory /home/ubuntu/git/IT490_PokePlace/Frontend');
 
             echo "Result: " . $response_msg;
             break;
