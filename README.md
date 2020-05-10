@@ -1,5 +1,5 @@
 # IT490_PokePlace
-Our final project for IT490 - Systems Integration class.  This project utilizes RabbitMQ, PHP, HTML, CSS, Javascript, MySQL and a Rest API for a pokemon database website
+Our final project for IT490 - Systems Integration class.  This project utilizes RabbitMQ, PHP, HTML, CSS, Bootstrap, Ajax, Javascript, MySQL and a Rest API for a pokemon database website
 
 ## Members
 Andrew Amador: Backend/Database
