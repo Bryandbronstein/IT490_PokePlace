@@ -10,6 +10,14 @@ Bryan Bronstein: Frontend
 
 Helder Quental: Backend/RabbitMQ
 
+## Special Notes
+The "Frontend" branch contains the files bundlingScript.php and prodListener.php
+ - bundlingScript.php: required for develeopment server to push to deployment server
+ - prodListener.php: required to receive bundles from development server
+
+All the code for the deployment server is under the branch "Deployment"
+ 
+
 
 ## Communication/Git Logs
 
