@@ -1,4 +1,7 @@
 <?php
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/path.inc');
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/get_host_info.inc');
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQLib.inc');
     //STEPS TO MAKE THIS SCRIPT WORK
     //1. Create empty directories "directoryToBuild" and "directoryToSend"
     //2. Set permissions for these directories: "sudo chmod 777 PATH_TO_DIRECTORIES"
@@ -8,7 +11,7 @@
     $a = new PharData('/home/ubuntu/git/IT490_PokePlace/directoryToBuild/frontendBundle.tar');
     $a->buildFromDirectory('/home/ubuntu/git/IT490_PokePlace/directoryToBuild');
     $a->compress(Phar::GZ);
-    rename('/home/ubuntu/git/IT490_PokePlace/directoryToBuild/frontendBundle.tar.gz', '/home/ubuntu/git/IT490_PokePlace/directoryToSend/frontendBundle.tar.gz');
+    rename('/home/ubuntu/git/IT490_PokePlace/directoryToBuild/frontendBundle.tar.gz', '/home/ubuntu/git/IT490_PokePlace/directoryToSend/frontendBudle.tar.gz');
 
     $files = glob('/home/ubuntu/git/IT490_PokePlace/directoryToBuild/*');
     foreach($files as $file){
@@ -17,7 +20,7 @@
     }
 
 
-    $output = shell_exec("sudo sshpass -p 'password' scp /home/ubuntu/git/IT490_PokePlace/directoryToSend/frontendBundle.tar.gz ubuntu@10.0.0.201:/home/ubuntu/versions/frontend");
+    $output = shell_exec("sudo sshpass -p 'password' scp /home/ubuntu/git/IT490_PokePlace/directoryToSend/frontendBundle.tar.gz ubuntu@10.0.0.201:home/ubuntu/versions/frontend");
 
     //var dumps for error checking
     $files = scandir('/home/ubuntu/git/IT490_PokePlace/directoryToSend');
@@ -38,7 +41,7 @@
 
     $response = createClientRequest($request);
     echo "Response from deployment server: ";
-    echo $response;
+    var_dump($response);
 
 
     //CODE FOR RMQ REQUEST
