@@ -1,7 +1,6 @@
-<?php
-require_once('/home/ubuntu/git/IT490_PokePlace/path.inc');
-require_once('/home/ubuntu/git/IT490_PokePlace/get_host_info.inc');
-require_once('/home/ubuntu/git/IT490_PokePlace/rabbitMQLib.inc');
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/path.inc');
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/get_host_info.inc');
+require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQLib.inc');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
@@ -20,7 +19,7 @@ function requestProcessor($request)
 
         case "install_frontend":
             $file = scandir("/home/ubuntu/filesToInstall", 1);
-            $response_msg = exec('tar -xzf --overwrite ' .$file[0]. ' --directory /home/ubuntu/git/IT490_PokePlace/Frontend');
+            $response_msg = exec('sudo tar -xvf ' .$file[0]. ' --directory /home/ubuntu/git/IT490_PokePlace/Frontend');
 
             echo "Result: " . $response_msg;
             break;
@@ -31,10 +30,7 @@ function requestProcessor($request)
     return $response_msg;
 }
 
-$server = new rabbitMQServer('/home/ubuntu/git/IT490_PokePlace/rabbitMQ_deployment.ini', 'testServer');
+$server = new rabbitMQServer('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQ_deployment.ini', 'testServer');
 
 $server->process_requests('requestProcessor');
-
-
-?>
 
