@@ -509,4 +509,73 @@ function loadLeaderboard()
 		}
 	}
 }
+
+function LoadUsers(){
+
+        $connection = dbConnection();
+
+        $sql = "SELECT username FROM users";
+
+        $result = mysqli_query($connection,$sql);
+        $resultArray = array();
+        while( $Row = mysqli_fetch_assoc($result))
+
+        {
+                $resultArray[] = $Row;
+
+        }
+
+
+        $resultjson = json_encode($resultArray);
+        var_dump($resultjson);
+        var_dump($resultArray);
+        return $resultjson;
+
+
+}
+
+
+
+function addFriends($username, $friendToAdd){
+
+    $connection = dbConnection();
+
+    $sql = "SELECT * FROM users WHERE username = '$username'";
+
+    $resultRaw = mysqli_query($connection, $sql);
+    $result = mysqli_fetch_assoc($resultRaw);
+    var_dump($username);
+    if($result['friend1']) {
+        if ($result['friend2']) {
+            return false;
+        } else {
+            $sqlUpdate = "UPDATE users SET friend2 = '$friendToAdd' WHERE username = '$username'";
+        }
+    }else{
+        $sqlUpdate = "UPDATE users SET friend1 = '$friendToAdd' WHERE username = '$username'";
+    }
+        $resultRawUpdate = mysqli_query($connection, $sqlUpdate);
+
+	 return true;
+}
+
+
+function LoadFriends($username){
+
+        $connection = dbConnection();
+
+        $sql = "SELECT * FROM users WHERE username = '$username'";
+
+        $result = mysqli_query($connection, $sql);
+        $resultArray = mysqli_fetch_assoc($result);
+        $newResult = array();
+        $newResult['friend1'] = $resultArray['friend1'];
+        $newResult['friend2'] = $resultArray['friend2'];
+        $jsonResult = json_encode($newResult);
+        var_dump($jsonResult, $newResult);
+        return $jsonResult;
+
+
+        }
+
 ?>
