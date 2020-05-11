@@ -2,14 +2,14 @@
 <?php
 
 
-require_once('/home/aadarsh/Desktop/git/rabbitmqphp_example/path.inc');
-require_once('/home/aadarsh/Desktop/git/rabbitmqphp_example/get_host_info.inc');
-require_once('/home/aadarsh/Desktop/git/rabbitmqphp_example/rabbitMQLib.inc');
+require_once('/home/ubuntu/git/it490-dmz/path.inc');
+require_once('/home/ubuntu/git/it490-dmz/get_host_info.inc');
+require_once('/home/ubuntu/git/it490-dmz/rabbitMQLib.inc');
 
 
 
 
-$client = new rabbitMQClient("/home/aadarsh/Desktop/git/rabbitmqphp_example/rabbitMQ_rmq.ini","testServer");
+$client = new rabbitMQClient("/home/ubuntu/git/it490-dmz/rabbitMQ_rmq.ini","testServer");
 
 $msg = "default test message";
 
