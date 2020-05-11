@@ -1,3 +1,4 @@
+<?php
 require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/path.inc');
 require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/get_host_info.inc');
 require_once('/home/ubuntu/git/IT490_PokePlace/rabbitmqphp_example/rabbitMQLib.inc');
