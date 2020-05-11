@@ -1,0 +1,248 @@
+2020-03-04:Bryandbronstein::Initial commit
+2020-03-04:HelderQuental::midterm RabbitMQ server commit
+
+Completed code for RabbitMQ server
+2020-03-04:bryandbronstein::Added files form old project repository
+
+2020-03-05:HelderQuental::Final Midterm Commit for RabbitMQ Server
+
+2020-03-05:HelderQuental::Merge branch 'master' into RabbitMQ
+
+2020-03-05:HelderQuental: (origin/RabbitMQ):removed extra folder
+
+2020-03-05:bryandbronstein::moved updated midterm files to new git repo
+
+2020-03-05:bryandbronstein::added code for leaderboard.php
+
+2020-03-05:amador2694::added files to pokeplace
+
+2020-03-05:Bryandbronstein::Update javascript.js
+2020-03-05:Bryandbronstein::Update functions.php
+2020-03-05:Bryandbronstein::added multiple small fixes to variable names, class declarations in HTML and CSS
+
+2020-03-07:bryandbronstein::updated .ini files to reflect new rabbitmq server ip and added more test cases in functions.php and javascript.js
+
+2020-03-07:bryandbronstein::added icons for battle button
+
+2020-03-10:arp97-njit::initial
+2020-03-10:Bryandbronstein: (HEAD -> master):added chat log files and git info for midterm deliverable
+2020-03-10:bryandbronstein::updated functions.php to fix battle system
+
+2020-03-12:amador2694::fixed dbFunctions.php
+2020-03-12:amador2694::fixed dbListener.php
+2020-03-12:amador2694::database tables
+2020-03-12:Bryandbronstein::updated look of battleDiv
+
+2020-03-12:arp97-njit::file structure update
+2020-03-12:arp97-njit::file structure
+2020-03-12:arp97-njit::Delete pokeApi.php
+2020-03-12:arp97-njit::Delete dmzListener.php
+2020-03-12:arp97-njit::Delete rabbitMQ_db.ini
+2020-03-12:arp97-njit::file structure
+2020-03-12:arp97-njit::Update ReadMe
+2020-03-31:bryandbronstein::added battle modal code to leaderboard.php
+
+2020-04-08:bryandbronstein::added friends list design + other misc functions
+
+2020-04-09:bryandbronstein::updated designs and code for friends list and battle modal
+
+2020-04-09:bryandbronstein::updated battle modal in leaderboard.php
+
+2020-04-09:bryandbronstein::updated rabbitMQ_db.ini with new listener ip
+
+2020-04-09:bryandbronstein::updated paths in functions.php
+
+2020-04-10:bryandbronstein::addedd .htaccess file for https redirect
+
+2020-04-10:bryandbronstein::addedd .htaccess file for https redirect
+
+2020-04-10:bryandbronstein::addedd .htaccess file for https redirect
+
+2020-04-13:bryandbronstein::added favicon to all HTML pages
+
+2020-04-15:bryandbronstein::added favicon to all HTML pages
+
+2020-04-15:bryandbronstein::added favicon to all HTML pages
+
+2020-04-15:bryandbronstein::testing
+
+2020-04-15:bryandbronstein::testing
+
+2020-04-15:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::added table code for LoadFriends function
+
+2020-04-16:root::	modified:   functions.php
+	modified:   profile.php
+
+2020-04-16:bryandbronstein::Fixed friendslist table
+
+2020-04-16:bryandbronstein::added code for LoadUsers function
+
+2020-04-16:root::	modified:   profile.php
+
+2020-04-16:root::Merge branch 'Frontend' of https://github.com/Bryandbronstein/IT490_PokePlace into Frontend
+
+2020-04-16:bryandbronstein::added loadfriends function on button click
+
+2020-04-16:root::Merge branch 'Frontend' of https://github.com/Bryandbronstein/IT490_PokePlace into Frontend
+
+	modified:   profile.php
+
+2020-04-16:bryandbronstein::resolved git merge issues
+
+2020-04-16:bryandbronstein::added onclick function for button
+
+2020-04-16:root::	modified:   profile.php
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:root::	modified:   functions.php
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::testing
+
+2020-04-16:bryandbronstein::updated battle modal on both profile.php and leaderboard.php
+
+2020-05-01:bryandbronstein::added code and dirs for bundlingScript.php
+
+2020-05-06:Bryandbronstein::Add files via upload
+2020-05-06:Bryandbronstein::Add files via upload
+2020-05-07:bryandbronstein::updated bundlingScript.php to add scp commands
+
+2020-05-07:bryandbronstein::Merge remote-tracking branch 'origin/Frontend' into Frontend
+
+2020-05-07:bryandbronstein::deleted unnecessary .pem file
+
+2020-05-07:bryandbronstein::fixed bundlingScript.php
+
+2020-05-07:root::	modified:   bundlingScript.php
+	new file:   rabbitmqserver490.pem
+
+2020-05-07:bryandbronstein::edited instructions in comments for bundlingScript.php
+
+2020-05-07:bryandbronstein::edited instructions in comments for bundlingScript.php
+
+2020-05-07:root::	modified:   bundlingScript.php
+	new file:   directoryToSend/frontendBundle.tar.gz
+	modified:   rabbitmqphp_example/rabbitMQ_db.ini
+	new file:   rabbitmqphp_example/rabbitMQ_deployment.ini
+
+2020-05-07:bryandbronstein::edited instructions in comments for bundlingScript.php
+
+2020-05-07:bryandbronstein::edited instructions in comments for bundlingScript.php
+
+2020-05-07:root::	modified:   bundlingScript.php
+	deleted:    directoryToSend/frontendBundle.tar.gz
+	modified:   rabbitmqphp_example/rabbitMQ_deployment.ini
+
+2020-05-08:Bryandbronstein::Delete IT490 - Pokemon Dataset Project Proposal.pdf
+2020-05-08:Bryandbronstein::Add files via upload
+2020-05-08:Bryandbronstein::Delete Direct Messages - between Andrew and Bryan.html
+2020-05-08:Bryandbronstein::Create README.md
+2020-05-08:bryandbronstein::testing out prodListener.php
+
+2020-05-08:bryandbronstein::Merge remote-tracking branch 'origin/Frontend' into Frontend
+
+2020-05-09:bryandbronstein::updated prodListener.php
+
+2020-05-10:Bryandbronstein::Update README.md
+2020-05-10:Bryandbronstein::added overwite tag to tar extraction
+2020-05-10:Bryandbronstein::Update README.md
+2020-05-10:Bryandbronstein::fixed typo
+2020-05-10:Bryandbronstein::updated to sudo tar
+2020-05-10:Bryandbronstein::Update prodListener.php
+2020-05-10:Bryandbronstein::Update bundlingScript.php
+2020-05-10:Bryandbronstein: (origin/Frontend):Update rabbitMQ_deployment.ini
+2020-05-10:HelderQuental::Final Deployment commit
+2020-05-10:HelderQuental: (origin/Deployment):Final deployment Listener Commit
+2020-05-10:amador2694::Update dbListener.php
+
+Final
+2020-05-10:amador2694: (origin/database):Update dbFunctions.php
+
+Final
+2020-05-10:Bryandbronstein: (origin/master, origin/HEAD):Update README.md
+2020-05-10:arp97-njit: (origin/dmz):Add files via upload
+2020-05-10:bryan::index on Frontend: 5d34cd4 Merge remote-tracking branch 'origin/Frontend' into Frontend
+
+2020-05-10:bryan: (refs/stash):On Frontend: Uncommitted changes before Update at 5/10/20, 10:16 PM
+
+2020-05-10:bryan: (Frontend):added gitLog.txt
