@@ -121,7 +121,29 @@
 		case "test":
 			echo "about to rtn";
 			$response_msg = "in case";
-			break;
+			break; 
+				
+		case "LoadUsers":
+
+                        $response_msg = LoadUsers();
+
+
+                        break;
+
+                 case "LoadFriends":
+
+                        $response_msg = LoadFriends($request['username']);
+
+
+                        break;
+
+                 case "AddFriends":
+
+                        $response_msg = addFriends($request['username'], $request['friendToAdd']);
+
+
+                        break;
+
 
 
 
